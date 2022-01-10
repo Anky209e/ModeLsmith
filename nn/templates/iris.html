@@ -21,10 +21,6 @@
     </form>
 
     <div class="result">
-        {% if prob != None %}
-            {{pred}}:{{prob}}
-        {% else %}
-            {{pred}}
-        {% endif %}
+        {{pred}}{% if prob != None %}:{{prob}}{% endif %}
 </body>
 </html>

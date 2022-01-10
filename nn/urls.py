@@ -3,6 +3,5 @@ from . import views
 
 urlpatterns = [
     path('iris/', views.iris),
-    path('heart/', views.heart)
-
+    path('heart/', views.heart),
 ]
