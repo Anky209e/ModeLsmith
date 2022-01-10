@@ -1,9 +1,19 @@
+from pickle import NONE
 from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
 import torch
 import numpy
+
+
+"""
+Note: you can set None to prob variable in dictionary if u want to throw a error at html page and
+        set the error message as value to pred.
+"""
+
+
+
 
 
 #----------------------IRIS---------------------
@@ -17,37 +27,37 @@ def iris(request):
             pl = float(request.POST.get("pl"))
             pw = float(request.POST.get("pw"))
         except:
-            return render(request, "iris.html", {"pred" : "Enter the", "prob" : "Values First"})
-
+            return render(request, "iris.html", {"pred" : "Enter the values.", "prob" : None})
         result = predict_iris(sl,sw,pl,pw)
-
         return render(request, "iris.html", {"pred" : result[0], "prob" : result[1]})
-
     else:
-        return render(request, "iris.html", {"pred" : "Enter the", "prob" : "Values First"})
+        return render(request, "iris.html", {"pred" : "Enter the values.", "prob" : None})
+
 
 #----------------------HEART---------------------
 def heart(request):
-    return render(request, "heart.html", {"pred" : "Dunno", "prob" : "00.00"})
+    if request.method == "POST":
 
-def heart_ans(request):
-    from .classes.heart import predict_heart_attack
+        from .classes.heart import predict_heart_attack
+        try:
+            age = float(request.POST.get("age"))
+            sex = float(request.POST.get("sex"))
+            cp = float(request.POST.get("cp"))
+            trestbps = float(request.POST.get("trestbps"))
+            chol = float(request.POST.get("chol"))
+            fbs = float(request.POST.get("fbs"))
+            restecg = float(request.POST.get("restecg"))
+            thalach = float(request.POST.get("thalach"))
+            exang = float(request.POST.get("exang"))
+            oldpeak = float(request.POST.get("oldpeak"))
+            slope = float(request.POST.get("slope"))
+            ca = float(request.POST.get("ca"))
+            thal = float(request.POST.get("thal"))
+        except:
+            return render(request,"heart.html",{"pred":"Please enter correct values.","prob":None})
+        result = predict_heart_attack(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal)
+        return render(request,"heart.html",{"pred":result[0],"prob":result[1]})
+    else:
+        return render(request, "heart.html", {"pred" : "Enter the values.", "prob" : None})
 
-    age =float(request.GET.get("age"))
-    sex = float(request.GET.get("sex"))
-    cp = float(request.GET.get("cp"))
-    trestbps = float(request.GET.get("trestbps"))
-    chol = float(request.GET.get("chol"))
-    fbs = float(request.GET.get("fbs"))
-    restecg = float(request.GET.get("restecg"))
-    thalach = float(request.GET.get("thalach"))
-    exang = float(request.GET.get("exang"))
-    oldpeak = float(request.GET.get("oldpeak"))
-    slope = float(request.GET.get("slope"))
-    ca = float(request.GET.get("ca"))
-    thal = float(request.GET.get("thal"))
-
-    result = predict_heart_attack(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal)
-
-    return render(request,"result.html",{"pred":result[0],"prob":result[1]})
 
