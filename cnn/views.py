@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .forms import ImageForm
 
-# Create your views here.
 def maleria(request):
     if request.method =="POST":        
         form = ImageForm(request.POST, request.FILES)
@@ -35,9 +34,8 @@ def cifar10(request):
 
         img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
             
-        from .classes.cifar10 import predict_maleria
-        result = predict_maleria(img_path)
-
+        from .classes.cifar10 import predict_cifar10
+        result = predict_cifar10(img_path)
 
         return render(request, "cifar10.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
     else:

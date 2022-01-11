@@ -67,4 +67,4 @@ def predict_maleria(path_to_image):
     
     os.remove(path_to_image)
     
-    return result,chance
+    return result, chance, pred[0]

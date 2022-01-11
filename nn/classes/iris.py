@@ -35,4 +35,4 @@ def predict_iris(sepal_length, sepal_width, petal_length, petal_width):
     else:
         final_ans = "Iris-virginica"
     
-    return final_ans,round(float(pred.max())*100, 2)
+    return final_ans, round(float(pred.max())*100, 2), pred

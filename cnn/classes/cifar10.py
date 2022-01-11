@@ -1,6 +1,9 @@
 import torch
+from torchvision.transforms import ToTensor
+
 import numpy as np
 from PIL import Image
+import os
 
 
 class ResNet12(torch.nn.Module):
@@ -77,26 +80,30 @@ class ResNet12(torch.nn.Module):
         
         return out
 
-def predict(path,model):
+def predict_cifar10(path):
     img = Image.open(path)
     
     if img.size != (32,32):
         img = img.resize((32,32))
     
+    mean = (0.4914, 0.4822, 0.4465)
+    dev = (0.247, 0.2435, 0.2616)
+    img_cls = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+
     transform = ToTensor()
-    img_tensor =torch.reshape(transform(img) , (1,3,64,64))
+    img_tensor = transform(img)
+    img_tensor =torch.reshape(img_tensor , (1,3,32,32))
 
-    model_pred = ResNet12()
-
-    img_arr = img_arr/255
-    img_tsr = torch.Tensor([img_arr])
-    img_tsr = img_tsr.permute(0,3,1,2)
-    
     for i in range(3):
-        img_tsr[0][i] = (img_tsr[0][i]-mean[i])/dev[i] 
+        img_tensor[0][i] = (img_tensor[0][i]-mean[i])/dev[i] 
+
+    model = ResNet12()
+    model.load_state_dict(torch.load("./models/Cifar10_RN12_acc88.pth",map_location=torch.device("cpu")))
     
-    pred = model(img_tsr).detach()
+    pred = model(img_tensor).detach()
     pred = np.array(pred[0])
     pred_index = np.where(pred==max(pred))[0][0]
     
-    print("Prediction: ",img_cls[pred_index])
+    os.remove(path)
+
+    return img_cls[pred_index], round(pred[pred_index]*100, 2), pred

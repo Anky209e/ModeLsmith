@@ -1,5 +1,3 @@
-x = [7,21]
-print(x)
+x = "Screen Shot"
 
-x = x/7
-print(x)
+print(x.replace(" ", "_"))

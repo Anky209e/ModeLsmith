@@ -47,4 +47,4 @@ def predict_heart_attack(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldp
     
 
 
-    return ans , chance
+    return ans , chance, preds
