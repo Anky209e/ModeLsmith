@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .forms import ImageForm
 
+
+
+def home(request):
+    return render(request,"cnn/home.html")
 def maleria(request):
     if request.method =="POST":        
         form = ImageForm(request.POST, request.FILES)
@@ -18,11 +22,11 @@ def maleria(request):
         result = predict_maleria(img_path)
 
 
-        return render(request, "maleria.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
+        return render(request, "cnn/maleria.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
     else:
         image_form = ImageForm()
 
-        return render(request, "maleria.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
+        return render(request, "cnn/maleria.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
 
 
 def cifar10(request):
@@ -39,11 +43,11 @@ def cifar10(request):
         from .classes.cifar10 import predict_cifar10
         result = predict_cifar10(img_path)
 
-        return render(request, "cifar10.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
+        return render(request, "cnn/cifar10.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
     else:
         image_form = ImageForm()
 
-        return render(request, "cifar10.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
+        return render(request, "cnn/cifar10.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
 
 def gender(request):
     if request.method =="POST":        
@@ -59,8 +63,8 @@ def gender(request):
         from .classes.gender import predict_gender
         result = predict_gender(img_path)
 
-        return render(request, "gender.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
+        return render(request, "cnn/gender.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
     else:
         image_form = ImageForm()
 
-        return render(request, "gender.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
+        return render(request, "cnn/gender.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})

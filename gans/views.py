@@ -2,7 +2,8 @@ from django.shortcuts import redirect, render
 import random
 import os
 # Create your views here.
-
+def home(request):
+    return render(request,"gans/home.html")
 def abs_art(request):
     if request.method == "POST":
 
@@ -12,6 +13,6 @@ def abs_art(request):
         result_pth = save_samples(1)
         
         
-        return render(request,"abs_art.html",{"gen":"True","img_path":result_pth})
+        return render(request,"gans/abs_art.html",{"gen":"True","img_path":result_pth})
     else:
-        return render(request,"abs_art.html",{"gen":"False"})
+        return render(request,"gans/abs_art.html",{"gen":"False"})
