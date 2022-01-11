@@ -7,7 +7,9 @@
     <title>Iris</title>
 </head>
 <body>
+    {% if prob == None %}
     values = [4.8,3.4,1.6,0.2]
+    <br>
     <form action="" method="post">
         {% csrf_token %}
         Sepal length<input type="text" name="sl">cm<br>
@@ -19,8 +21,10 @@
         <input type="submit" value="submit">
         
     </form>
+    {% endif %}
 
     <div class="result">
         {{pred}}{% if prob != None %}:{{prob}}{% endif %}
+    </div>
 </body>
 </html>

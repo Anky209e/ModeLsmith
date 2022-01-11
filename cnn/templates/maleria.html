@@ -7,6 +7,7 @@
     <title>Maleria</title>
 </head>
 <body>
+
     {% if prob == None %}
     <form action="" method="post"  enctype="multipart/form-data">
         {% csrf_token %}
@@ -15,7 +16,12 @@
         <input type="submit" value="Upload">
     </form>
     {% endif %}
+
     <br>
-    {{pred}}{% if prob != None %}: {{prob}}%{% endif %}
+
+    <div class="result">
+        {{pred}}{% if prob != None %}:{{prob}}{% endif %}
+    </div>
+    
 </body>
 </html>

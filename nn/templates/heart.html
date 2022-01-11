@@ -7,6 +7,7 @@
     <title>Heart</title>
 </head>
 <body>
+    {% if prob == None %}
     <form action=" " method="post">
         {% csrf_token %}
         <!-- age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal -->
@@ -28,13 +29,10 @@
 
         <input type="submit" value="Submit">
     </form>
+    {% endif %}
+    
     <div class="result">
-        {% if prob != None %}
-            {{pred}}:{{prob}}
-        {% else %}
-            {{pred}}
-        {% endif %}
-        
+        {{pred}}{% if prob != None %}:{{prob}}{% endif %}
     </div>
 </body>
 </html>

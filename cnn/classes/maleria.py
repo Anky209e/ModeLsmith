@@ -55,7 +55,7 @@ def predict_maleria(path_to_image):
     img_tensor = torch.reshape(img_tensor, (1,3,64,64))
 
     model_pred = MaleriaModel()
-    model_pred.load_state_dict(torch.load("./models/Maleria.pth",map_location=torch.device("cpu")))
+    model_pred.load_state_dict(torch.load("./models/Maleria_CNN7_acc96.pth",map_location=torch.device("cpu")))
     pred = model_pred(img_tensor)
 
     if pred[0][0].item()>=pred[0][1].item():

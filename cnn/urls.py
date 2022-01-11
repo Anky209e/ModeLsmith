@@ -5,7 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("maleria/", views.maleria)
+    path("maleria/", views.maleria),
+    path("cifar10/", views.cifar10)
 ]
 
 
