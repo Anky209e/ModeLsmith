@@ -11,7 +11,9 @@ def maleria(request):
             pass
 
         img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
-            
+        img_path = img_path.replace(" ","_")
+        
+        print(img_path)
         from .classes.maleria import predict_maleria
         result = predict_maleria(img_path)
 
