@@ -1,9 +1,9 @@
 import torch
+from torchvision.transforms import ToTensor
+
 import numpy as np
 from PIL import Image
 import os
-from torchvision.transforms import ToTensor
-
 
 class MaleriaModel(torch.nn.Module):
     def __init__(self):
