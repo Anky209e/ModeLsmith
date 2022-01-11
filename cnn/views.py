@@ -14,10 +14,8 @@ def maleria(request):
         except:
             pass
 
-        img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
-        img_path = img_path.replace(" ","_")
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"]).replace(" ", "_")
         
-        print(img_path)
         from .classes.maleria import predict_maleria
         result = predict_maleria(img_path)
 
@@ -38,7 +36,7 @@ def cifar10(request):
         except:
             pass
 
-        img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"]).replace(" ", "_")
             
         from .classes.cifar10 import predict_cifar10
         result = predict_cifar10(img_path)
@@ -58,7 +56,7 @@ def gender(request):
         except:
             pass
 
-        img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"]).replace(" ", "_")
             
         from .classes.gender import predict_gender
         result = predict_gender(img_path)
