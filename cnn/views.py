@@ -44,3 +44,23 @@ def cifar10(request):
         image_form = ImageForm()
 
         return render(request, "cifar10.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
+
+def gender(request):
+    if request.method =="POST":        
+        form = ImageForm(request.POST, request.FILES)
+        try:
+            if form.is_valid():
+                form.save()
+        except:
+            pass
+
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"])
+            
+        from .classes.gender import predict_gender
+        result = predict_gender(img_path)
+
+        return render(request, "gender.html", {"image_form": "", "pred" : result[0], "prob" : result[1]})
+    else:
+        image_form = ImageForm()
+
+        return render(request, "gender.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None})
