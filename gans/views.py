@@ -45,3 +45,17 @@ def paint(request):
         return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth})
     else:
         return render(request,"gans/paint.html",{"gen":"False"})
+
+
+def flowers(request):
+    if request.method == "POST":
+
+        from .classes.flowers import save_samples
+        
+        
+        result_pth = save_samples(1)
+        
+        
+        return render(request,"gans/flowers.html",{"gen":"True","img_path":result_pth})
+    else:
+        return render(request,"gans/flowers.html",{"gen":"False"})
