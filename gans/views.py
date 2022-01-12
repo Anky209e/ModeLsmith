@@ -16,3 +16,32 @@ def abs_art(request):
         return render(request,"gans/abs_art.html",{"gen":"True","img_path":result_pth})
     else:
         return render(request,"gans/abs_art.html",{"gen":"False"})
+
+
+
+def simpson(request):
+    if request.method == "POST":
+
+        from .classes.simpson import save_samples
+        
+        
+        result_pth = save_samples(1)
+        
+        
+        return render(request,"gans/simpson.html",{"gen":"True","img_path":result_pth})
+    else:
+        return render(request,"gans/simpson.html",{"gen":"False"})
+
+
+def paint(request):
+    if request.method == "POST":
+
+        from .classes.paint import save_samples
+        
+        
+        result_pth = save_samples(1)
+        
+        
+        return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth})
+    else:
+        return render(request,"gans/paint.html",{"gen":"False"})
