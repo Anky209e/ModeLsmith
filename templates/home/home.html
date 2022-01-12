@@ -37,6 +37,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
 
 
+
+
     * {box-sizing: border-box;}
     body {
         background-color: var(--black);
@@ -47,9 +49,15 @@
         margin: 0;
     }
 
+    .drop-down-links{
+        font-family: "Chakra Petch";
+        font-size: large;
+        text-decoration: none;
+    }
+
     .header {
         width:100%;
-        height: 14%;
+        height: 8%;
         position: absolute;
         padding: 2px;
 
@@ -63,7 +71,7 @@
         padding-top:10px;
         padding-bottom: 10px;
         height: 100%;
-        width: 14.5%;
+        width: 6%;
         float: left;
     }
     .img {
@@ -86,7 +94,7 @@
     .content{
         position: absolute;
         left:1.5%;
-        top:16%;
+        top:12%;
         width:67%;
         bottom:2.5%;
         
@@ -121,7 +129,7 @@
     .side{
         position: absolute;
         right:1.5%;
-        top:16%;
+        top:12%;
         width:28.5%;
         bottom:2.5%;
         
@@ -131,7 +139,43 @@
         overflow: auto;
     }
 
+    .drop-main{
+        /* border: 2px solid var(--black); */
+        margin-left: 5%;
+    }
 
+    .dropdown {
+    margin-top: 0.9%;
+    margin-left: 1%;
+    position: relative;
+    display: inline-block;
+    background-color: var(--blue);
+    border-radius: 10px 10px 0px 0px;
+    padding: 1%;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--green);
+    min-width: 160px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 4px 8px 0px var(--black);
+    padding: 12px 16px;
+    z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dr-links{
+        /* border-top: 2px solid red;
+        border-left: 2px solid red;
+        border-right: 2px solid red;
+        border-radius: 10px 10px 0px 0px; */
+        box-shadow: 0px 4px 8px 0px var(--black);
+    }
 
 </style>
 
@@ -140,9 +184,44 @@
     <div class="header">
         
         <div class="logo">
-            <img src="./logo.png" class="img">
+            <a href=""><img src="/media/home/logo.png" class="img"></a>
         </div>
-        <div class="navbar">Navigation bar here</div>
+        <div class="navbar">
+            <div class="drop-main">
+                <div class="dropdown">
+                    <a class="drop-down-links" href="nn/">Linear network</a>
+                    <div class="dropdown-content">
+                        <a class="drop-down-links dr-links" href="nn/iris/">Iris</a><br>
+                        <a class="drop-down-links dr-links"  href="nn/heart/">Heart</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="drop-down-links" href="cnn/">Convolutional network</a>
+                    <div class="dropdown-content">
+                        <a class="drop-down-links dr-links" href="cnn/maleria/">Malaria</a><br>
+                        <a class="drop-down-links dr-links" href="cnn/cifar10/">CIFAR10</a><br>
+                        <a class="drop-down-links dr-links" href="cnn/gender/">Gender detection</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="drop-down-links" href="gans/">GANS</a>
+                    <div class="dropdown-content">
+                        <a class="drop-down-links dr-links" href="gans/abs_art/">Abstract art</a><br>
+                        <a class="drop-down-links dr-links"  href="gans/simpson/">Simpsons</a><br>
+                        <a class="drop-down-links dr-links" href="gans/paint/">Painting</a><br>
+                        <a class="drop-down-links dr-links" href="gans/flowers/">Flowers</a><br>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="drop-down-links" href="about/">About</a>
+                    <div class="dropdown-content">
+                        <a class="drop-down-links dr-links" href="about/anky/">Ankit</a><br>
+                        <a class="drop-down-links dr-links"  href="about/ashu/">Ashwani</a>
+                    </div>
+            </div>
+             </div>
+        </div>
+
 
     </div>
     
