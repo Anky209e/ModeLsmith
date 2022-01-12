@@ -1,14 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModeLsmith</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Montserrat+Alternates:wght@200&family=Righteous&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet"> 
 </head>
+
+<style>
+    /* Variables */
+    :root {
+        /* Color Variables */
+        --black: #292837;
+        --white: #f8f8f2;
+        --grey: #44475a;
+
+        --green: #50fa7b;
+        --pink: #ff79c6;
+        --purple: #bd93f9;
+        --blue: #8be9fd;
+
+        --red: #ff5555;
+        --orange: #ffb86c;
+        --yellow: #f1fa8c;
+    }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Righteous:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+
+    * {box-sizing: border-box;}
+    body {
+        background-color: var(--black);
+        margin: 0;
+    } 
+    div{
+        padding: 0;
+        margin: 0;
+    }
+
+    .header {
+        width:100%;
+        height: 14%;
+        position: absolute;
+        padding: 2px;
+
+        margin-bottom: 1px;
+        border-bottom: 4px solid var(--green);
+        background-color: var(--grey);
+        /* background-image: linear-gradient(to top, rgba(255,120,200,0), rgba(255,120,200,1)); */
+        border-radius: 0px 0px 25px 25px;
+    }
+    .logo {
+        padding-top:10px;
+        padding-bottom: 10px;
+        height: 100%;
+        width: 14.5%;
+        float: left;
+    }
+    .img {
+        height: 100%;
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+    .navbar{
+        height: 100%;
+        width: 84.5%;
+        float: right;
+        
+        padding: 5px;
+
+    }
+
+    .content{
+        position: absolute;
+        left:1.5%;
+        top:16%;
+        width:67%;
+        bottom:2.5%;
+        
+        float: left;
+        border: 2px solid var(--green);
+        border-radius: 10px;
+        overflow: auto;
+    }
+    .breadcrumbs{
+        display: inline-block;
+        width: 100%;
+        padding: 7px;
+
+
+        
+        background-color: var(--grey);
+        color: var(--pink);
+        font-family: "Chakra Petch";
+        font-size: large;
+        border-radius: 10px 10px 0px 0px;
+        border-bottom: 1px solid var(--pink);
+    }
+    .breadcrumbs a{
+        color:var(--pink);
+        text-decoration: none;
+    }
+    .breadcrumbs a:hover{
+        color:var(--purple);
+        text-decoration: none;
+    }
+
+    .side{
+        position: absolute;
+        right:1.5%;
+        top:16%;
+        width:28.5%;
+        bottom:2.5%;
+        
+        float: right;
+        border: 2px solid var(--green);
+        border-radius:0px 10px 10px 0px;
+        overflow: auto;
+    }
+
+
+
+</style>
+
 <body>
-    <a href="nn/">NN</a><br>
-    <a href="cnn/">CNN</a><br>
-    <a href="gans/">GANS</a><br>
+    
+    <div class="header">
+        
+        <div class="logo">
+            <img src="./logo.png" class="img">
+        </div>
+        <div class="navbar">Navigation bar here</div>
+
+    </div>
+    
+
+    <div class="content">
+        <div class="breadcrumbs">
+            <a href=""> Home</a> / <a href="">Convolutional NeuralNet</a>  / <a href="">Maleria</a> 
+        </div>
+    
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="title"></div>
+    </div>
+
+    <div class="side">
+        <div class="breadcrumbs">INFO</div>
+    </div>
 </body>
 </html>
