@@ -1,10 +1,23 @@
 from django.shortcuts import render
 from .forms import ImageForm
-
+import os
 
 
 def home(request):
-    return render(request,"cnn/home.html")
+
+    models = os.listdir("./cnn/classes")
+    length = len(models)
+
+    for i in range(length):
+        if models[i] == '__pycache__':
+            del(models[i])
+            break
+
+    for i in range(length -1):
+        models[i] = models[i][:-3]
+
+    return render(request,"cnn/home.html", {"list":models})
+
 def maleria(request):
     if request.method =="POST":        
         form = ImageForm(request.POST, request.FILES)

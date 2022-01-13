@@ -4,11 +4,15 @@ import os
 
 def home(request):
     models = os.listdir("./nn/classes/")
-    for i in range(len(models)):
-        if models[i] == "__pycache__":
+    length = len(models)
+    
+    for i in range(length):
+        if models[i] == '__pycache__':
             del(models[i])
-        else:
-            models[i] = models[i][:-3] 
+            break
+
+    for i in range(length -1):
+        models[i] = models[i][:-3]
 
     return render(request,"nn/home.html", {"list":models})
 #----------------------IRIS---------------------
