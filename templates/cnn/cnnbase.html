@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} {{name}} CNN {% endblock %}
+
+{% block breadcrumbs %}
+<a href="/home">Home</a> / <a href="/cnn">Convolutional Neural Networks</a> /<span style="color: var(--purple); font-size: x-large;">{% block model %}{{name}}{% endblock %}</span>
+{% endblock %}
+
+{% block info-title %}Info{% endblock %}
+
+{% block info%}
+    INFO about model here
+{% endblock%}
+
+{% block content %}
+    {% if prob == None %}
+    <form action="" method="post"  enctype="multipart/form-data" class="cnn">
+        {% csrf_token %}
+        {{ image_form }}
+
+        <input type="submit" value="Upload" class="submit">
+    </form>
+    {% endif %}
+
+    <br>
+
+    <div class="result">
+        {{pred}}{% if prob != None %}:{{prob}}%{% endif %}
+    </div>
+{% endblock %}

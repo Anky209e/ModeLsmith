@@ -1,31 +1,8 @@
-{% extends 'base.html' %}
+{% extends './cnnbase.html' %}
 
-{% block title %} Maleria CNN {% endblock %}
+{% block info %}
 
-{% block breadcrumbs %}
-<a href="/home">Home</a> / <a href="/cnn">Convolutional Neural Networks</a> /<span style="color: var(--purple); font-size: x-large;">Maleria</span>
+Maleria Info here
+
 {% endblock %}
 
-{% block info-title %}Info{% endblock %}
-
-{% block info%}
-    <br>
-    
-{% endblock%}
-
-{% block content %}
-    {% if prob == None %}
-    <form action="" method="post"  enctype="multipart/form-data" class="cnn">
-        {% csrf_token %}
-        {{ image_form }}
-
-        <input type="submit" value="Upload" class="submit">
-    </form>
-    {% endif %}
-
-    <br>
-
-    <div class="result">
-        {{pred}}{% if prob != None %}:{{prob}}%{% endif %}
-    </div>
-{% endblock %}

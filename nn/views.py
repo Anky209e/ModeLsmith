@@ -26,11 +26,11 @@ def iris(request):
             pl = float(request.POST.get("pl"))
             pw = float(request.POST.get("pw"))
         except:
-            return render(request, "nn/iris.html", {"pred" : "Please enter correct values", "prob" : None})
+            return render(request, "nn/iris.html", {"pred" : "Please enter correct values", "prob" : None,"name":"Iris"})
         result = predict_iris(sl,sw,pl,pw)
-        return render(request, "nn/iris.html", {"pred" : result[0], "prob" : result[1]})
+        return render(request, "nn/iris.html", {"pred" : result[0], "prob" : result[1], "name":"Iris"})
     else:
-        return render(request, "nn/iris.html", {"pred" : "Enter the values.", "prob" : None})
+        return render(request, "nn/iris.html", {"pred" : "Enter the values.", "prob" : None, "name":"Iris"})
 
 
 #----------------------HEART---------------------
@@ -53,11 +53,11 @@ def heart(request):
             ca = float(request.POST.get("ca"))
             thal = float(request.POST.get("thal"))
         except:
-            return render(request,"nn/heart.html",{"pred":"Please enter correct values","prob":None})
+            return render(request,"nn/heart.html",{"pred":"Please enter correct values","prob":None,"name":"Heart"})
 
         result = predict_heart_attack(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal)
-        return render(request,"nn/heart.html",{"pred":result[0],"prob":result[1]})
+        return render(request,"nn/heart.html",{"pred":result[0],"prob":result[1], "name":"Heart"})
     else:
-        return render(request, "nn/heart.html", {"pred" : "Enter the values.", "prob" : None})
+        return render(request, "nn/heart.html", {"pred" : "Enter the values.", "prob" : None, "name":"Heart"})
 
 

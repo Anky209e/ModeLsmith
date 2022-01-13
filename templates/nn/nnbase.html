@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} {{name}} NN {% endblock %}
+
+{% block breadcrumbs %}
+<a href="/home">Home</a> / <a href="/nn">Neural Networks</a> /<span style="color: var(--purple); font-size: x-large;">{% block model %}{{name}}{% endblock %}</span>
+{% endblock %}
+
+{% block info-title %}Info{% endblock %}
+
+{% block info%}
+    INFO about model here
+{% endblock%}
+
+{% block content %}
+    Content Here
+{% endblock %}

@@ -3,19 +3,28 @@ import random
 import os
 # Create your views here.
 def home(request):
-    return render(request,"gans/home.html")
-def abs_art(request):
-    if request.method == "POST":
+    models = os.listdir("./gans/classes/")
+    length = len(models)
 
-        from .classes.abs_art import save_samples
+    for i in range(length):
+        if models[i] == '__pycache__':
+            del(models[i])
+            break
+
+    for i in range(length -1):
+        models[i] = models[i][:-3]
+        # models[i] = models[i].replace("_", " ")
+
+    return render(request,"gans/home.html",{"list":models})
+
+def abstract_art(request):
+    if request.method == "POST":
+        from .classes.abstract_art import save_samples
+        result_pth = save_samples(1)        
         
-        
-        result_pth = save_samples(1)
-        
-        
-        return render(request,"gans/abs_art.html",{"gen":"True","img_path":result_pth})
+        return render(request,"gans/abstract_art.html",{"gen":"True","img_path":result_pth, "name":"Abstract_art"})
     else:
-        return render(request,"gans/abs_art.html",{"gen":"False"})
+        return render(request,"gans/abstract_art.html",{"gen":"False", "name":"Abstract Art"})
 
 
 
@@ -28,9 +37,9 @@ def simpson(request):
         result_pth = save_samples(1)
         
         
-        return render(request,"gans/simpson.html",{"gen":"True","img_path":result_pth})
+        return render(request,"gans/simpson.html",{"gen":"True","img_path":result_pth, "name":"Simpson"})
     else:
-        return render(request,"gans/simpson.html",{"gen":"False"})
+        return render(request,"gans/simpson.html",{"gen":"False", "name":"Simpson"})
 
 
 def paint(request):
@@ -42,9 +51,9 @@ def paint(request):
         result_pth = save_samples(1)
         
         
-        return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth})
+        return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth, "name":"Painter"})
     else:
-        return render(request,"gans/paint.html",{"gen":"False"})
+        return render(request,"gans/paint.html",{"gen":"False", "name":"Painter"})
 
 
 def flowers(request):
@@ -56,6 +65,6 @@ def flowers(request):
         result_pth = save_samples(1)
         
         
-        return render(request,"gans/flowers.html",{"gen":"True","img_path":result_pth})
+        return render(request,"gans/flowers.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
     else:
-        return render(request,"gans/flowers.html",{"gen":"False"})
+        return render(request,"gans/flowers.html",{"gen":"False", "name":"Flower"})
