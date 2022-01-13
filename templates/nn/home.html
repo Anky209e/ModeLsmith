@@ -1,258 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NN</title>
+{% block title %} NeuralNet {% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Montserrat+Alternates:wght@200&family=Righteous&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet"> 
-</head>
+{% block breadcrumbs %}
+<a href="/home">Home</a> / <span style="color: var(--purple); font-size: x-large;">Neural Networks</span> /
+{% endblock %}
 
-<style>
-    /* Variables */
-    :root {
-        /* Color Variables */
-        --black: #292837;
-        --white: #f8f8f2;
-        --grey: #44475a;
+{% block info-title %}Dropdown{% endblock %}
 
-        --green: #50fa7b;
-        --pink: #ff79c6;
-        --purple: #bd93f9;
-        --blue: #8be9fd;
+{% block info%}
+    <br>
+    <ul>
+        {% for i in list%}
+            <li><a href="/nn/{{i}}">{{i}}</a></li><br>
+        {% endfor %}
+    </ul>
+{% endblock%}
 
-        --red: #ff5555;
-        --orange: #ffb86c;
-        --yellow: #f1fa8c;
-    }
+{% block content %}
+    <div class="high-head high-word">What Is a Neural Network?</div>
+    <p>
+        A neural network is a series of algorithms that endeavors to recognize underlying relationships in a set of data through a process that mimics the way the human brain operates. In this sense, neural networks refer to systems of neurons, either organic or artificial in nature.
+    </p>
+    <p>
+        Neural networks can adapt to changing input; so the network generates the best possible result without needing to redesign the output criteria. The concept of neural networks, which has its roots in artificial intelligence, is swiftly gaining popularity in the development of trading systems. 
+    </p>
 
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Righteous:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+    <div class="high-word high-head">Key TakeAways</div>
+    <ul>
+        <li>Neural networks are a series of algorithms that mimic the operations of an animal brain to recognize relationships between vast amounts of data.</li>
+        <li>As such, they tend to resemble the connections of neurons and synapses found in the brain.</li>
+        <li>They are used in a variety of applications in financial services, from forecasting and marketing research to fraud detection and risk assessment.</li>
+        <li>Neural networks with several process layers are known as "deep" networks and are used for deep learning algorithms</li>
+        <li>The success of neural networks for stock market price prediction varies.</li>
+    </ul>
 
-
-
-
-    * {box-sizing: border-box;}
-    body {
-        background-color: var(--black);
-        margin: 0;
-    } 
-    div{
-        padding: 0;
-        margin: 0;
-    }
-
-    .drop-down-links{
-        font-family: "Chakra Petch";
-        font-size: large;
-        text-decoration: none;
-    }
-
-    .header {
-        width:100%;
-        height: 8%;
-        position: absolute;
-        padding: 2px;
-
-        margin-bottom: 1px;
-        border-bottom: 4px solid var(--green);
-        background-color: var(--grey);
-        /* background-image: linear-gradient(to top, rgba(255,120,200,0), rgba(255,120,200,1)); */
-        border-radius: 0px 0px 25px 25px;
-    }
-    .logo {
-        padding-top:10px;
-        padding-bottom: 10px;
-        height: 100%;
-        width: 6%;
-        float: left;
-    }
-    .img {
-        height: 100%;
-        width: 60%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0;
-    }
-    .navbar{
-        height: 100%;
-        width: 84.5%;
-        float: right;
-        
-        padding: 5px;
-
-    }
-
-    .content{
-        position: absolute;
-        left:1.5%;
-        top:12%;
-        width:67%;
-        bottom:2.5%;
-        
-        float: left;
-        border: 2px solid var(--green);
-        border-radius: 10px;
-        overflow: auto;
-    }
-    .breadcrumbs{
-        display: inline-block;
-        width: 100%;
-        padding: 7px;
+    <p>
+        Hidden layers fine-tune the input weightings until the neural network’s margin of error is minimal. It is hypothesized that hidden layers extrapolate salient features in the input data that have predictive power regarding the outputs. This describes feature extraction, which accomplishes a utility similar to statistical techniques such as principal component analysis. 
+    </p>
 
 
-        
-        background-color: var(--grey);
-        color: var(--pink);
-        font-family: "Chakra Petch";
-        font-size: large;
-        border-radius: 10px 10px 0px 0px;
-        border-bottom: 1px solid var(--pink);
-    }
-    .breadcrumbs a{
-        color:var(--pink);
-        text-decoration: none;
-    }
-    .breadcrumbs a:hover{
-        color:var(--purple);
-        text-decoration: none;
-    }
-
-    .side{
-        position: absolute;
-        right:1.5%;
-        top:12%;
-        width:28.5%;
-        bottom:2.5%;
-        
-        float: right;
-        border: 2px solid var(--green);
-        border-radius:0px 10px 10px 0px;
-        overflow: auto;
-    }
-
-    .drop-main{
-        /* border: 2px solid var(--black); */
-        margin-left: 5%;
-    }
-
-    .dropdown {
-    margin-top: 0.9%;
-    margin-left: 1%;
-    position: relative;
-    display: inline-block;
-    background-color: var(--blue);
-    border-radius: 10px 10px 0px 0px;
-    padding: 1%;
-    }
-
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--green);
-    min-width: 160px;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 4px 8px 0px var(--black);
-    padding: 12px 16px;
-    z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-content {
-    display: block;
-    }
-
-    .dr-links{
-        /* border-top: 2px solid red;
-        border-left: 2px solid red;
-        border-right: 2px solid red;
-        border-radius: 10px 10px 0px 0px; */
-        box-shadow: 0px 4px 8px 0px var(--black);
-    }
-
-    .title{
-        color: var(--blue);
-    }
-    .content-text{
-        color: var(--blue);
-    }
-
-</style>
-
-<body>
-    
-    <div class="header">
-        
-        <div class="logo">
-            <a href="/home/"><img src="/media/home/logo.png" class="img"></a>
-        </div>
-        <div class="navbar">
-            <div class="drop-main">
-                <div class="dropdown">
-                    <a class="drop-down-links" href="/nn/">Linear network</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="/nn/iris/">Iris</a><br>
-                        <a class="drop-down-links dr-links"  href="/nn/heart/">Heart</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="/cnn/">Convolutional network</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="/cnn/maleria/">Malaria</a><br>
-                        <a class="drop-down-links dr-links" href="/cnn/cifar10/">CIFAR10</a><br>
-                        <a class="drop-down-links dr-links" href="/cnn/gender/">Gender detection</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="/gans/">GANS</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="/gans/abs_art/">Abstract art</a><br>
-                        <a class="drop-down-links dr-links"  href="/gans/simpson/">Simpsons</a><br>
-                        <a class="drop-down-links dr-links" href="/gans/paint/">Painting</a><br>
-                        <a class="drop-down-links dr-links" href="/gans/flowers/">Flowers</a><br>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="/about/">About</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="/about/anky/">Ankit</a><br>
-                        <a class="drop-down-links dr-links"  href="/about/ashu/">Ashwani</a>
-                    </div>
-            </div>
-             </div>
-        </div>
-
-
-    </div>
-    
-
-    <div class="content">
-        <div class="breadcrumbs">
-            <a href=""> Home</a> / <a href="cnn/">Convolutional NeuralNet</a> 
-        </div>
-    
-        
-        <div class="title"></div>
-        <p class="content-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti eos quas est totam
-            itaque voluptates magnam asperiores cumque dolore. Assumenda qui autem modi nobis magni, delectus minus aperiam eaque cum quos
-            non nihil provident nostrum asperiores accusantium ab aliquam beatae impedit! Facilis sunt, quia excepturi minus, corporis rem
-            cum molestiae velit asperiores alias reprehenderit dolor dicta error, atque placeat voluptates nemo dolores accusamus id aperiam 
-            ab rerum maxime amet quas! Quisquam quibusdam qui exercitationem vitae non ipsam reiciendis illum accusantium doloremque ratione minima 
-            enim corporis quod ab temporibus illo est, laudantium sed ipsum rerum rem ipsa nisi minus. Repellat ipsam, expedita rerum molestias magnam doloremque ut voluptas neque amet voluptate 
-            possimus culpa vitae facere, nulla repudiandae, eos quos omnis sit officiis error nam earum vero recusandae quam! Provident?
-        </p>
-    </div>
-
-    <div class="side">
-        <div class="breadcrumbs">INFO</div>
-    </div>
-</body>
-</html>
+{% endblock %}

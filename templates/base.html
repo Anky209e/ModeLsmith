@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Title Here{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Montserrat+Alternates:wght@200&family=Righteous&family=Space+Grotesk&family=Poppins:wght@500&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<style>
+    /* Variables */
+    :root {
+        /* Color Variables */
+        --black: #292837;
+        --white: #f8f8f2;
+        --grey: #44475a;
+
+        --green: #50fa7b;
+        --pink: #ff79c6;
+        --purple: #bd93f9;
+        --blue: #8be9fd;
+
+        --red: #ff5555;
+        --orange: #ffb86c;
+        --yellow: #f1fa8c;
+    }
+
+
+
+
+    * {box-sizing: border-box;}
+    body {
+        background-color: var(--black);
+        margin: 0;
+    } 
+    div{
+        padding: 0;
+        margin: 0;
+    }
+
+    .drop-down-links{
+        font-family: "Chakra Petch";
+        font-size: large;
+        text-decoration: none;
+    }
+
+    .header {
+        width:100%;
+        height: 10%;
+        position: absolute;
+        padding: 2px;
+
+        margin-bottom: 1px;
+        border-bottom: 4px solid var(--green);
+        background-color: var(--grey);
+        /* background-image: linear-gradient(to top, rgba(80,255,120,0), rgba(80,255,120,1)); */
+        border-radius: 0px 0px 25px 25px;
+
+    }
+    .logo {
+        padding-top:10px;
+        padding-bottom: 10px;
+        height: 100%;
+        width: 10%;
+        float: left;
+
+
+    }
+    .img {
+        height: 100%;
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+    .navbar{
+        height: 100%;
+        width: 90%;
+        float: right;
+
+    }
+    .drop-main{
+        position: absolute;
+        bottom:0%;
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        width:88%;
+
+        padding-left: 5%;
+    }
+
+    .dropdown {
+        
+        display: inline-block;
+        background-color: var(--grey);
+        border: 3px solid var(--green);
+        border-bottom: 0px;
+        padding: 0.5%;
+
+        text-align: center;
+        margin-left: 5%;
+
+    }
+
+    .dropdown:hover {
+        background-color: var(--black);
+        border: 3px solid var(--purple);
+        border-bottom: 0px;
+
+        border-image-slice: 1;
+        border-image-source: linear-gradient(180deg,var(--purple),var(--green) );
+    }
+
+
+    .dropdown:hover .drop-down-links{
+        color:var(--purple);
+        text-decoration: none;
+    }
+
+    .drop-down-links{
+        color:var(--pink);
+        font-size: large;
+        font-family: "Poppins";
+
+        text-decoration: none;
+    }
+
+    
+    .breadcrumbs{
+        display: inline-block;
+        width: 100%;
+        padding: 7px;
+        
+        
+        
+        background-color: var(--grey);
+        color: var(--pink);
+        font-family: "Chakra Petch";
+        font-size: larger;
+        border-radius: 10px 10px 0px 0px;
+        border-bottom: 1px solid var(--pink);
+    }
+    .breadcrumbs a{
+        color:var(--pink);
+        text-decoration: none;
+    }
+    .breadcrumbs a:hover{
+        color:var(--purple);
+        text-decoration: none;
+    }
+
+    .content{
+        position: absolute;
+        left:1.5%;
+        top:12%;
+        width:67%;
+        bottom:2.5%;
+        
+        float: left;
+        border-radius: 10px;
+        overflow: auto;
+        
+        /* border: 3px solid var(--green); */
+        /* border-image-slice: 1; */
+        /* border-image-source: linear-gradient(-45deg,var(--purple), var(--blue), var(--green) ); */
+    }
+
+    .side{
+        position: absolute;
+        right:1.5%;
+        top:12%;
+        width:28.5%;
+        bottom:2.5%;
+        
+        float: right;
+        border: 3px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg,var(--purple), var(--blue), var(--green) );
+        border-radius:0px 10px 10px 0px;
+        overflow: auto;
+    }
+
+    .data{
+        padding: 10px;
+        font-family: "Space Grotesk";
+        color: var(--white);
+    }
+
+    .high-word{
+        color:var(--blue);
+    }
+    .high-line{
+        background-color: var(--grey);
+        color:var(--yellow);
+    }
+    .high-head{
+        font-family: "Righteous";
+        font-size: larger;
+    }
+
+    .data ul{
+        list-style: none;
+ 
+    }
+    li::before {
+        content: "❯_";
+        font-size: medium;
+        color: var(--green);
+        margin-right: 1em;
+        display: inline-block;
+    }
+
+    .side ul{
+        font-size: larger;
+        font-family: "Poppins";
+    }
+    .side ul a{
+        text-decoration: none;
+        color:var(--yellow);
+        text-transform: capitalize;
+    }
+    .side ul a:hover{
+        text-decoration: none;
+        color:var(--red);
+        text-transform: uppercase;
+    }
+
+
+
+</style>
+
+<body>
+    
+    <div class="header">
+        
+        <div class="logo">
+            <a href="/"><img src="/media/home/logo.png" class="img"></a>
+        </div>
+
+        <div class="navbar">
+            <div class="drop-main">
+                <div class="dropdown">
+                    <a class="drop-down-links" href="/nn">Neural<br> Network</a>
+                </div>
+                <div class="dropdown">
+                    <a class="drop-down-links" href="/cnn">Convolutional<br> NeuralNet</a>
+                </div>
+                <div class="dropdown">
+                    <a class="drop-down-links" href="/gans">Generative<br> AdversialNet</a>
+                </div>
+                <div class="dropdown" style="float:right;" >
+                    <a class="drop-down-links" href="/about" style="color: var(--orange);">About / <br> Contact</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+
+    <div class="content">
+        <div class="breadcrumbs">
+            {% block breadcrumbs %}BreadCrumbs{% endblock %} 
+        </div>
+        <div class="data">
+            {% block content %} Content {% endblock %}
+        </div>
+    </div>
+
+    <div class="side">
+        <div class="breadcrumbs"  style="font-size: x-large;">
+            {% block info-title %} Info Title {% endblock %}
+        </div>
+        <div class="data">
+            {% block info %} The urls and extra data {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

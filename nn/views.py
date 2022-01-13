@@ -1,9 +1,16 @@
 from django.shortcuts import render
-
+import os
 
 
 def home(request):
-    return render(request,"nn/home.html")
+    models = os.listdir("./nn/classes/")
+    for i in range(len(models)):
+        if models[i] == "__pycache__":
+            del(models[i])
+        else:
+            models[i] = models[i][:-3] 
+
+    return render(request,"nn/home.html", {"list":models})
 #----------------------IRIS---------------------
 def iris(request):
     if request.method =="POST":

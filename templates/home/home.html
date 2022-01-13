@@ -1,242 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModeLsmith</title>
+{% block title %} ModeLsmith {% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Montserrat+Alternates:wght@200&family=Righteous&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet"> 
-</head>
+{% block breadcrumbs %}<span style="color: var(--purple); font-size: x-large;" >Home</span> /{% endblock %}
 
-<style>
-    /* Variables */
-    :root {
-        /* Color Variables */
-        --black: #292837;
-        --white: #f8f8f2;
-        --grey: #44475a;
+{% block info-title %}Dropdown{% endblock %}
 
-        --green: #50fa7b;
-        --pink: #ff79c6;
-        --purple: #bd93f9;
-        --blue: #8be9fd;
-
-        --red: #ff5555;
-        --orange: #ffb86c;
-        --yellow: #f1fa8c;
-    }
-
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Righteous:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
-
-
-
-
-    * {box-sizing: border-box;}
-    body {
-        background-color: var(--black);
-        margin: 0;
-    } 
-    div{
-        padding: 0;
-        margin: 0;
-    }
-
-    .drop-down-links{
-        font-family: "Chakra Petch";
-        font-size: large;
-        text-decoration: none;
-    }
-
-    .header {
-        width:100%;
-        height: 8%;
-        position: absolute;
-        padding: 2px;
-
-        margin-bottom: 1px;
-        border-bottom: 4px solid var(--green);
-        background-color: var(--grey);
-        /* background-image: linear-gradient(to top, rgba(255,120,200,0), rgba(255,120,200,1)); */
-        border-radius: 0px 0px 25px 25px;
-    }
-    .logo {
-        padding-top:10px;
-        padding-bottom: 10px;
-        height: 100%;
-        width: 6%;
-        float: left;
-    }
-    .img {
-        height: 100%;
-        width: 60%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0;
-    }
-    .navbar{
-        height: 100%;
-        width: 84.5%;
-        float: right;
-        
-        padding: 5px;
-
-    }
-
-    .content{
-        position: absolute;
-        left:1.5%;
-        top:12%;
-        width:67%;
-        bottom:2.5%;
-        
-        float: left;
-        border: 2px solid var(--green);
-        border-radius: 10px;
-        overflow: auto;
-    }
-    .breadcrumbs{
-        display: inline-block;
-        width: 100%;
-        padding: 7px;
-
-
-        
-        background-color: var(--grey);
-        color: var(--pink);
-        font-family: "Chakra Petch";
-        font-size: large;
-        border-radius: 10px 10px 0px 0px;
-        border-bottom: 1px solid var(--pink);
-    }
-    .breadcrumbs a{
-        color:var(--pink);
-        text-decoration: none;
-    }
-    .breadcrumbs a:hover{
-        color:var(--purple);
-        text-decoration: none;
-    }
-
-    .side{
-        position: absolute;
-        right:1.5%;
-        top:12%;
-        width:28.5%;
-        bottom:2.5%;
-        
-        float: right;
-        border: 2px solid var(--green);
-        border-radius:0px 10px 10px 0px;
-        overflow: auto;
-    }
-
-    .drop-main{
-        /* border: 2px solid var(--black); */
-        margin-left: 5%;
-    }
-
-    .dropdown {
-    margin-top: 0.9%;
-    margin-left: 1%;
-    position: relative;
-    display: inline-block;
-    background-color: var(--blue);
-    border-radius: 10px 10px 0px 0px;
-    padding: 1%;
-    }
-
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--green);
-    min-width: 160px;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 4px 8px 0px var(--black);
-    padding: 12px 16px;
-    z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-content {
-    display: block;
-    }
-
-    .dr-links{
-        /* border-top: 2px solid red;
-        border-left: 2px solid red;
-        border-right: 2px solid red;
-        border-radius: 10px 10px 0px 0px; */
-        box-shadow: 0px 4px 8px 0px var(--black);
-    }
-
-</style>
-
-<body>
-    
-    <div class="header">
-        
-        <div class="logo">
-            <a href=""><img src="/media/home/logo.png" class="img"></a>
-        </div>
-        <div class="navbar">
-            <div class="drop-main">
-                <div class="dropdown">
-                    <a class="drop-down-links" href="nn/">Linear network</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="nn/iris/">Iris</a><br>
-                        <a class="drop-down-links dr-links"  href="nn/heart/">Heart</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="cnn/">Convolutional network</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="cnn/maleria/">Malaria</a><br>
-                        <a class="drop-down-links dr-links" href="cnn/cifar10/">CIFAR10</a><br>
-                        <a class="drop-down-links dr-links" href="cnn/gender/">Gender detection</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="gans/">GANS</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="gans/abs_art/">Abstract art</a><br>
-                        <a class="drop-down-links dr-links"  href="gans/simpson/">Simpsons</a><br>
-                        <a class="drop-down-links dr-links" href="gans/paint/">Painting</a><br>
-                        <a class="drop-down-links dr-links" href="gans/flowers/">Flowers</a><br>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a class="drop-down-links" href="about/">About</a>
-                    <div class="dropdown-content">
-                        <a class="drop-down-links dr-links" href="about/anky/">Ankit</a><br>
-                        <a class="drop-down-links dr-links"  href="about/ashu/">Ashwani</a>
-                    </div>
-            </div>
-             </div>
-        </div>
-
-
+{% block info%}
+    <div style="color: var(--grey); font-size: large;">
+        //Hey! Click on the big buttons in the nav bar to see the specific links.
     </div>
-    
+{% endblock%}
 
-    <div class="content">
-        <div class="breadcrumbs">
-            <a href=""> Home</a> / <a href="">Convolutional NeuralNet</a>  / <a href="">Maleria</a> 
-        </div>
-    
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <div class="title"></div>
-    </div>
+{% block content %}
+    <img src="/media/home/deep-learning.png" alt="" style="float: right;" width="25%">
 
-    <div class="side">
-        <div class="breadcrumbs">INFO</div>
+    <div style="font-size: large;">    
+        <p style="margin-top: 0;">
+            <span class="high-word high-head">Deep learning</span> is a machine learning technique that teaches computers to do what comes naturally to humans: learn by example.<br>
+            Deep learning is a key technology behind <span class="high-word">driverless cars</span>, enabling them to recognize a stop sign, or to distinguish a pedestrian from a lamppost.<br>
+            It is the key to <span class="high-word">voice control</span> in consumer devices like phones, tablets, TVs, and hands-free speakers. Deep learning is getting lots of attention lately and for good reason. It’s achieving results that were not possible before.
+        </p>
+        <p>
+            In deep learning, a computer model learns to perform classification tasks directly from images, text, or sound. Deep learning models can achieve state-of-the-art accuracy, sometimes exceeding human-level performance.<br>
+            Models are trained by using a <span class="high-line">large set of labeled data and neural network architectures</span> that contain many layers.
+        </p>
+        <p>
+            While deep learning was first theorized in the 1980s, there are two main reasons it has only recently become useful:
+
+            <ul>
+                <li>Deep learning requires large amounts of labeled data. For example, driverless car development requires millions of images and thousands of hours of video.</li>
+                <li>Deep learning requires substantial computing power. High-performance GPUs have a parallel architecture that is efficient for deep learning. When combined with clusters or cloud computing, this enables development teams to reduce training time for a deep learning network from weeks to hours or less.</li>
+            </ul>
+        </p>
+        <img src="https://www.mathworks.com/discovery/deep-learning/_jcr_content/mainParsys/band_2123350969_copy_1983242569/mainParsys/columns_1635259577/1/image_2128876021_cop_1731669336.adapt.1200.medium.svg/1639474434320.svg" alt="" style="float:left;">
+
+        <p>
+        <div class="high-head high-word">How to Create and Train Deep Learning Models</div>
+        The three most common ways people use deep learning to perform object classification are:
+            <ul>
+                <li class="high-word" style="font-size: large;">Training from Scratch</li>
+                To train a deep network from scratch, you gather a very large labeled data set and design a network architecture that will learn the features and model. This is good for new applications, or applications that will have a large number of output categories. This is a less common approach because with the large amount of data and rate of learning, these networks typically take days or weeks to train.<br>
+                <li class="high-word" style="font-size: large;">Transfer Learning</li>
+                Most deep learning applications use the transfer learning approach, a process that involves fine-tuning a pretrained model. You start with an existing network, such as AlexNet or GoogLeNet, and feed in new data containing previously unknown classes. After making some tweaks to the network, you can now perform a new task, such as categorizing only dogs or cats instead of 1000 different objects. This also has the advantage of needing much less data (processing thousands of images, rather than millions), so computation time drops to minutes or hours.<br>
+                <li class="high-word" style="font-size: large;">Feature Extraction</li>
+                A slightly less common, more specialized approach to deep learning is to use the network as a feature extractor. Since all the layers are tasked with learning certain features from images, we can pull these features out of the network at any time during the training process. These features can then be used as input to a machine learning model such as support vector<br>
+            </ul>
+        </p>
+
+        
     </div>
-</body>
-</html>
+{% endblock%}
