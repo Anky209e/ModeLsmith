@@ -1,29 +1,53 @@
 {% extends './nnbase.html' %}
 
 {% block info %}
-Heart info here
+<h3 style="color: gray;">This is a single layered linear network.</h3>
+<span class="high-word high-head">Dataset Information</span> 
+<p>
+    This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them.
+     In particular, the Cleveland database is the only one that has been used by ML researchers to this date. 
+    The "goal" field refers to the presence of heart disease in the patient. 
+    It is integer valued from 0 (no presence) to 4. Experiments with the Cleveland database have concentrated on simply attempting to distinguish presence (values 1,2,3,4) from absence (value 0).
+    <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://archive.ics.uci.edu/ml/datasets/heart+disease">Download</a>
+</p>
+<p>This model has same network as the
+<a href="/nn/iris/" style="color: #bd93f9; text-decoration: none;">Iris</a>.
+</p>
+<span class="high-word high-head">Sigmoid Function</span> 
+<p>
+    The sigmoid function is used as an activation function in neural networks. 
+    Just to review what is an activation function, the figure below shows the role of an activation function in one layer of a neural network. 
+    A weighted sum of inputs is passed through an activation function and this output serves as an input to the next layer. 
+</p>
+<img src="https://machinelearningmastery.com/wp-content/uploads/2021/08/sigmoidUnit.png" style="width: 100%;" alt="">
+<img src="https://www.gstatic.com/education/formulas2/397133473/en/sigmoid_function.svg" style="width: 100%;" alt="">
+
+<p>
+    When the activation function for a neuron is a sigmoid function it is a guarantee that the output of this unit will always be between 0 and 1.
+    Also, as the sigmoid is a non-linear function, the output of this unit would be a non-linear function of the weighted sum of inputs.
+    Such a neuron that employs a sigmoid function as an activation function is termed as a sigmoid unit.
+</p>
+
+
 {% endblock %}
 
 {% block content %}
     {% if prob == None %}
         <form action=" " method="post">
             {% csrf_token %}
-            <!-- age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal -->
-            values = [50,1,0,144,200,0,0,126,1,0.9,1,0,3]
-            <br>
             Age:<input type="text" name="age"><br>
-            Sex:<input type="text" name="sex"><br>
-            Cp:<input type="text" name="cp"><br>
-            Trestbps:<input type="text" name="trestbps"><br>
-            Chol:<input type="text" name="chol"><br>
-            Fbs:<input type="text" name="fbs"><br>
-            RestEcg:<input type="text" name="restecg"><br>
-            Thalach:<input type="text" name="thalach"><br>
-            Exang:<input type="text" name="exang"><br>
-            OldPeak:<input type="text" name="oldpeak"><br>
-            Slope:<input type="text" name="slope"><br>
-            Ca:<input type="text" name="ca"><br>
-            Thal:<input type="text" name="thal"><br>
+            Sex: (1 = Male,0 = Female)<input type="text" name="sex" ><br>
+            Cp: (chest pain location ,1 = substernal; 0 = otherwise)<input type="text" name="cp"><br>
+            Trestbps: (resting blood pressure)<input type="text" name="trestbps"><br>
+            Chol: ( serum cholestoral in mg/dl )<input type="text" name="chol"><br>
+            Fbs: (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false) <input type="text" name="fbs"><br>
+            RestEcg: (resting electrocardiographic results)<input type="text" name="restecg"><br>
+            Thalach: ( maximum heart rate achieved )<input type="text" name="thalach"><br>
+            Exang: ( exercise induced angina:1 = yes; 0 = no)<input type="text" name="exang"><br>
+            OldPeak: ( ST depression induced by exercise relative to rest )<input type="text" name="oldpeak"><br>
+            Slope: ( the slope of the peak exercise ST segment )<input type="text" name="slope"><br>
+            Ca: (number of major vessels (0-3) colored by flourosopy )<input type="text" name="ca"><br>
+            Thal: (3 = normal; 6 = fixed defect; 7 = reversable defect )<input type="text" name="thal"><br>
 
             <input type="submit" value="Submit">
         </form>

@@ -238,6 +238,61 @@
         color:var(--red);
     }
 
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 3px solid ;
+        background-color: var(--black);
+        border-image-slice: 1;
+        border-image-source: linear-gradient(240deg,var(--pink), var(--blue), var(--green));
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+    }
+    input[type=text]:focus {
+        border: 3px solid var(--purple);
+        background-color: var(--blue);
+        border-image-slice: 1;
+        
+    }
+    input[type=submit]{
+        border: 3px solid;
+        border-image-slice: 1;
+        border-radius: 10px 10px 10px 10px;
+        border-color: var(--green);
+        cursor: pointer;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        /* border-image-source: linear-gradient(240deg,var(--pink),var(--purple), var(--blue), var(--green)); */
+        background-color: var(--black);
+        padding: 1%;
+        width: 100%;
+    }
+    input[type=submit]:hover{
+        
+        background-color: var(--blue);
+    }
+
+    input[type=file]{
+        border: 3px solid;
+        border-image-slice: 1;
+        border-radius: 10px 10px 10px 10px;
+        border-color: var(--green);
+        cursor: pointer;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        /* border-image-source: linear-gradient(240deg,var(--pink),var(--purple), var(--blue), var(--green)); */
+        background-color: var(--black);
+        padding: 1%;
+        width: 100%;    
+    }
+
+    .result{
+        color: var(--grey);
+    }
+
 
 
 </style>
