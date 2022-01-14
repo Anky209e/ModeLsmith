@@ -88,7 +88,7 @@ def predict_cifar10(path):
     
     mean = (0.4914, 0.4822, 0.4465)
     dev = (0.247, 0.2435, 0.2616)
-    img_cls = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+    img_cls = ['Airplane', 'Automobile', 'Bird', 'Cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
 
     transform = ToTensor()
     img_tensor = transform(img)
@@ -102,8 +102,12 @@ def predict_cifar10(path):
     
     pred = model(img_tensor).detach()
     pred = np.array(pred[0])
-    pred_index = np.where(pred==max(pred))[0][0]
-    
-    os.remove(path)
+    for i in range(len(img_cls)):
+        pred[i] = round(pred[i]*100, 2)
 
-    return img_cls[pred_index], round(pred[pred_index]*100, 2), pred
+    result = list(zip(img_cls, pred))
+    result.sort(key=lambda x:x[1], reverse=True)
+    
+    os.remove(path)    
+    
+    return result

@@ -35,16 +35,7 @@ def predict_heart_attack(age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldp
     # loading weights
 
     pre_model.load_state_dict(torch.load("./models/heart_attack_data.pth"))
-
-    preds = pre_model(inputs)
-    ans = "None"
-    if preds.item() >= 0.5:
-        ans = "YES"
-        chance = round(preds.item()*100,2)
-    else:
-        ans = "NO"
-        chance = round(100 - (preds.item()*100),2)
     
+    preds = pre_model(inputs).item()*100
 
-
-    return ans , chance, preds
+    return [("Bad Heart",round(preds,2))]

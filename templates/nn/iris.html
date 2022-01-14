@@ -33,26 +33,17 @@
 
 {% endblock %}
 
-{% block content %}
-    {% if prob == None %}
-        <form action="" method="post">
-            {% csrf_token %}
-            Sepal length:<input type="text" name="sl" placeholder="in cm" pattern="" required><br>
-            Sepal width:<input type="text" name="sw" placeholder="in cm" pattern="" required><br>
-            Petal length:<input type="text" name="pl" placeholder="in cm" pattern="" required><br>
-            Petal width:<input type="text" name="pw" placeholder="in cm" pattern="" required><br>
-            
-            <br>
-            <br>
-            <input type="submit" value="submit">
-            
-        </form>
+{% block inputs %}
+    <form action="" method="post">
+        {% csrf_token %}
+        Sepal length:<input type="text" name="sl" placeholder="in cm" required><br>
+        Sepal width:<input type="text" name="sw" placeholder="in cm" required><br>
+        Petal length:<input type="text" name="pl" placeholder="in cm" required><br>
+        Petal width:<input type="text" name="pw" placeholder="in cm" required><br>
         
+        <br>
+        <br>
+        <input type="submit" value="submit">
         
-    {% endif %}
-
-    <div class="result">
-        {{pred}}{% if prob != None %}:{{prob}}{% endif %}
-
-    </div>
+    </form>
 {% endblock %}

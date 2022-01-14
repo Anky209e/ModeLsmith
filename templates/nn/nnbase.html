@@ -13,5 +13,16 @@
 {% endblock%}
 
 {% block content %}
-    Content Here
+    {% block inputs %}
+    {% endblock %}
+        
+    <br>
+    <br>
+
+    <div class="result">
+        {% for class, prob in list %}
+            <span class="class">{{class}}</span>  : <span class="prob">{{prob}}%</span>  <br>
+        {% endfor %}
+    </div>
+
 {% endblock %}

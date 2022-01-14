@@ -33,11 +33,11 @@ def maleria(request):
         result = predict_maleria(img_path)
 
 
-        return render(request, "cnn/maleria.html", {"image_form": "", "pred" : result[0], "prob" : result[1], "name":"Maleria"})
+        return render(request, "cnn/maleria.html", {"image_form": None, "name":"Maleria", "list":result})
     else:
         image_form = ImageForm()
 
-        return render(request, "cnn/maleria.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None, "name":"Maleria"})
+        return render(request, "cnn/maleria.html", {"image_form": image_form, "name":"Maleria"})
 
 
 def cifar10(request):
@@ -54,11 +54,11 @@ def cifar10(request):
         from .classes.cifar10 import predict_cifar10
         result = predict_cifar10(img_path)
 
-        return render(request, "cnn/cifar10.html", {"image_form": "", "pred" : result[0], "prob" : result[1], "name":"Cifar10"})
+        return render(request, "cnn/cifar10.html", {"image_form": None, "name":"Cifar10", "list":result})
     else:
-        image_form = ImageForm()
+        form = ImageForm()
 
-        return render(request, "cnn/cifar10.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None, "name":"Cifar10"})
+        return render(request, "cnn/cifar10.html", {"image_form": form, "name":"Cifar10"})
 
 def gender(request):
     if request.method =="POST":        
@@ -74,8 +74,8 @@ def gender(request):
         from .classes.gender import predict_gender
         result = predict_gender(img_path)
 
-        return render(request, "cnn/gender.html", {"image_form": "", "pred" : result[0], "prob" : result[1], "name":"Gender"})
+        return render(request, "cnn/gender.html", {"image_form": None, "name":"Gender", "list":result})
     else:
         image_form = ImageForm()
 
-        return render(request, "cnn/gender.html", {"image_form": image_form, "pred" : "Please Upload Image", "prob" : None , "name":"Gender"})
+        return render(request, "cnn/gender.html", {"image_form": image_form, "name":"Gender"})

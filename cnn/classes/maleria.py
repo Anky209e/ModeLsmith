@@ -46,6 +46,7 @@ class MaleriaModel(torch.nn.Module):
 def predict_maleria(path_to_image):
 
     img = Image.open(path_to_image)
+    img_cls = ["Infected", "uninfected"]
 
     if img.size != (64,64):
         img = img.resize((64,64))
@@ -56,15 +57,15 @@ def predict_maleria(path_to_image):
 
     model_pred = MaleriaModel()
     model_pred.load_state_dict(torch.load("./models/Maleria_CNN7_acc96.pth",map_location=torch.device("cpu")))
-    pred = model_pred(img_tensor)
 
-    if pred[0][0].item()>=pred[0][1].item():
-        result = "Infected"
-        chance = round(pred[0][0].item()*100,2)
-    else:
-        result = "Uninfected"
-        chance = round(pred[0][1].item()*100,2)
+    pred = model_pred(img_tensor).detach()
+    pred = np.array(pred[0])
+    for i in range(len(img_cls)):
+        pred[i] = round(pred[i]*100, 2)
+
+    result = list(zip(img_cls, pred))
+    result.sort(key=lambda x:x[1], reverse=True)
     
     os.remove(path_to_image)
     
-    return result, chance, pred[0]
+    return result

@@ -22,7 +22,7 @@ def abstract_art(request):
         from .classes.abstract_art import save_samples
         result_pth = save_samples(1)        
         
-        return render(request,"gans/abstract_art.html",{"gen":"True","img_path":result_pth, "name":"Abstract_art"})
+        return render(request,"gans/abstract_art.html",{"gen":"True","img_path":result_pth, "name":"Abstract Art"})
     else:
         return render(request,"gans/abstract_art.html",{"gen":"False", "name":"Abstract Art"})
 

@@ -84,9 +84,13 @@ def predict_gender(path):
     
     pred = pred_model(img_tensor).detach()
     pred = np.array(pred[0])
-    pred_index = np.where(pred==max(pred))[0][0]
+    for i in range(len(img_cls)):
+        pred[i] = round(pred[i]*100, 2)
+
+    result = list(zip(img_cls, pred))
+    result.sort(key=lambda x:x[1], reverse=True)
 
     remove(path)
     
-    return img_cls[pred_index], round(pred[pred_index]*100,2), pred
+    return result
 
