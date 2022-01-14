@@ -53,15 +53,13 @@
 
     .header {
         width:100%;
-        height: 10%;
+        height: 11%;
         position: absolute;
         padding: 2px;
 
         margin-bottom: 1px;
-        border-bottom: 4px solid var(--green);
         background-color: var(--grey);
-        /* background-image: linear-gradient(to top, rgba(80,255,120,0), rgba(80,255,120,1)); */
-        border-radius: 0px 0px 25px 25px;
+        border-radius: 0px 0px 30px 30px;
 
     }
     .logo {
@@ -85,7 +83,6 @@
         height: 100%;
         width: 90%;
         float: right;
-
     }
     .drop-main{
         position: absolute;
@@ -100,33 +97,36 @@
     }
 
     .dropdown {
-        
         display: inline-block;
         background-color: var(--grey);
-        border: 3px solid var(--green);
+        border: 7px solid var(--black);
+
         border-bottom: 0px;
-        padding: 0.5%;
+        padding:0.5% 1.5%;
 
         text-align: center;
         margin-left: 5%;
 
         transition: 0.5s;
-
     }
 
     .dropdown:hover {
         background-color: var(--black);
-        border: 3px solid var(--purple);
+        border: 7px solid var(--purple);
         border-bottom: 0px;
+
+        transition: 0.5s;
 
         border-image-slice: 1;
         border-image-source: linear-gradient(180deg,var(--purple),var(--blue),var(--green) );
+        background-image: linear-gradient(180deg, var(--grey),var(--black),var(--black));
     }
 
 
     .dropdown:hover .drop-down-links{
         color:var(--purple);
         text-decoration: none;
+        /* font-size: larger; */
     }
 
     .drop-down-links{
@@ -135,6 +135,7 @@
         font-family: "Poppins";
 
         text-decoration: none;
+        transition: 0.4s;
     }
 
     
@@ -155,6 +156,7 @@
     .breadcrumbs a{
         color:var(--pink);
         text-decoration: none;
+        transition: 0.3s;
     }
     .breadcrumbs a:hover{
         color:var(--purple);
@@ -171,10 +173,6 @@
         float: left;
         border-radius: 10px;
         overflow: auto;
-        
-        /* border: 3px solid var(--green); */
-        /* border-image-slice: 1; */
-        /* border-image-source: linear-gradient(-45deg,var(--purple), var(--blue), var(--green) ); */
     }
 
     .side{
@@ -193,6 +191,8 @@
     }
 
     .data{
+        width: 100%;
+        display: inline-block;
         padding: 10px;
         font-family: "Space Grotesk";
         color: var(--white);
@@ -208,6 +208,10 @@
     .high-head{
         font-family: "Righteous";
         font-size: larger;
+    }
+    .comment{
+        font-family: "Chakra Petch";
+
     }
 
     .data ul{
@@ -238,41 +242,77 @@
         color:var(--red);
     }
 
-    input[type=text] {
+    form {
         width: 100%;
+        margin-top: 2%;
+        text-align: right;
+        color: var(--yellow);
+        font-weight: bold;
+        font-size: large;
+    }
+
+    input[type=text] {
+        width: 60%;
         padding: 12px 20px;
+
         margin: 8px 0;
-        box-sizing: border-box;
-        border: 3px solid ;
+        margin-left: 10%;
+        margin-right: 5%;
+
         background-color: var(--black);
+        border: 3px solid var(--purple);
+
         border-image-slice: 1;
         border-image-source: linear-gradient(240deg,var(--pink), var(--blue), var(--green));
-        -webkit-transition: 0.5s;
+ 
         transition: 0.5s;
         outline: none;
+
+        color: var(--blue);
+        font-size: medium;
+        font-family: "Chakra Petch";
+        text-align: center;
+        opacity: 0.5;
     }
+    
     input[type=text]:focus {
-        border: 3px solid var(--purple);
-        background-color: var(--blue);
-        border-image-slice: 1;
-        
+        background-color: var(--grey);
+        opacity: 1;
     }
+
     input[type=submit]{
-        border: 3px solid;
-        border-image-slice: 1;
-        border-radius: 10px 10px 10px 10px;
-        border-color: var(--green);
+        position: relative;
+        width:50%;
+        padding: 15px;
+        margin-top: 3%;
+        margin-right: 25%;
+
+        border: 3px solid var(--purple);
+        border-radius: 10px;
+        box-sizing: border-box;
+
         cursor: pointer;
-        -webkit-transition: 0.5s;
         transition: 0.5s;
-        /* border-image-source: linear-gradient(240deg,var(--pink),var(--purple), var(--blue), var(--green)); */
-        background-color: var(--black);
-        padding: 1%;
-        width: 100%;
-    }
-    input[type=submit]:hover{
+        opacity: 0.5;
         
-        background-color: var(--blue);
+        background-color: var(--grey);
+
+        color: var(--purple);
+        font-size: large;
+        font-family: "Righteous";
+        text-align: center;
+        opacity: 0.7;
+        text-transform: uppercase;
+    }
+
+    input[type=submit]:hover{
+        border: 3px solid var(--purple);
+        margin-right: 23.5%;
+        width: 53%;
+        opacity:1;
+
+        background-color: var(--black);
+        color:var(--yellow);
     }
 
     input[type=file]{

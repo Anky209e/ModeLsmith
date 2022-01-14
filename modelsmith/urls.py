@@ -12,6 +12,7 @@ urlpatterns = [
     path('gans/', include("gans.urls")), 
     path('', views.base), 
     path('home/', views.home), 
+    path('about/', views.about)
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

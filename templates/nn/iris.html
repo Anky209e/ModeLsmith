@@ -1,7 +1,7 @@
 {% extends './nnbase.html' %}
 
 {% block info %}
-    <h3 style="color: gray; );">This model uses single layered linear network.</h3>
+    <h3 style="color: gray;">This model uses single layered linear network.</h3>
     <span class="high-word high-head">Dataset Information</span> 
     <p>
         This is perhaps the best known database to be found in the pattern recognition literature. 
@@ -37,12 +37,13 @@
     {% if prob == None %}
         <form action="" method="post">
             {% csrf_token %}
-            Sepal length<input type="text" name="sl"><br>
-            Sepal width<input type="text" name="sw"><br>
-            Petal length<input type="text" name="pl"><br>
-            Petal width<input type="text" name="pw"><br>
+            Sepal length:<input type="text" name="sl" placeholder="in cm" pattern="" required><br>
+            Sepal width:<input type="text" name="sw" placeholder="in cm" pattern="" required><br>
+            Petal length:<input type="text" name="pl" placeholder="in cm" pattern="" required><br>
+            Petal width:<input type="text" name="pw" placeholder="in cm" pattern="" required><br>
             
-
+            <br>
+            <br>
             <input type="submit" value="submit">
             
         </form>
