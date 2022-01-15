@@ -1,8 +1,22 @@
 {% extends './cnnbase.html' %}
 
 {% block info %}
-
-Maleria Info here
+    <h3 style="color: gray;">This model uses Deep layer of Convolutional Neural Networks.</h3>
+    <span class="high-word high-head">Convolutional Neural Network</span> 
+    <p>
+        A Convolutional Neural Network (ConvNet/CNN) is a Deep Learning algorithm which can take in
+         an input image, assign importance (learnable weights and biases) 
+        to various aspects/objects in the image and be able to differentiate one from the other.
+    </p>
+    <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/Comp-1.gif" style="width: 100%;" alt="">
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset contains two types of images of cells infected and uninfected.
+        if image recognised is infected than the person is having maleria.
+        <b>Yes we know spelling of MALERIA is wrong.</b>
+    </p>
+    <p>Train your own model by <a target="_blank" style="color: #bd93f9; text-decoration: none;" href="https://www.kaggle.com/iarunava/cell-images-for-detecting-malaria">downloading the dataset.</a></p>
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/AshuAhlawat/Machine-Learning/blob/main/PyTorch/09cnn-maleria.ipynb">Code at Github.</a></p>
 
 {% endblock %}
 
