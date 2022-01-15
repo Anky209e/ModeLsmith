@@ -19,7 +19,7 @@ def home(request):
 def abstract_art(request):
     if request.method == "POST":
         from .classes.abstract_art import save_samples
-        result_pth = save_samples(1)        
+        result_pth = save_samples(4)        
         
         return render(request,"gans/abstract_art.html",{"gen":"True","img_path":result_pth, "name":"Abstract Art"})
     else:
@@ -31,7 +31,7 @@ def simpson(request):
     if request.method == "POST":
 
         from .classes.simpson import save_samples
-        result_pth = save_samples(1)
+        result_pth = save_samples(4)
         
         
         return render(request,"gans/simpson.html",{"gen":"True","img_path":result_pth, "name":"Simpson"})
@@ -43,7 +43,7 @@ def paint(request):
     if request.method == "POST":
 
         from .classes.paint import save_samples
-        result_pth = save_samples(1)
+        result_pth = save_samples(3)
         
         
         return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth, "name":"Painter"})
@@ -55,7 +55,7 @@ def flower(request):
     if request.method == "POST":
 
         from .classes.flower import save_samples
-        result_pth = save_samples(1)
+        result_pth = save_samples(4)
         
         
         return render(request,"gans/flower.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
@@ -66,8 +66,18 @@ def cat(request):
     if request.method == "POST":
 
         from .classes.cat import generate
-        result_pth = generate()        
+        result_pth = generate(4)        
         
         return render(request,"gans/cat.html",{"gen":"True","img_path":result_pth, "name":"Cat"})
     else:
         return render(request,"gans/cat.html",{"gen":"False", "name":"Cat"})
+
+def anime(request):
+    if request.method == "POST":
+
+        from .classes.anime import save_samples
+        result_pth = save_samples(4)        
+        
+        return render(request,"gans/anime.html",{"gen":"True","img_path":result_pth, "name":"Anime"})
+    else:
+        return render(request,"gans/anime.html",{"gen":"False", "name":"Cat"})

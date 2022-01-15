@@ -47,13 +47,13 @@ sample_dir = './media/gans_images'
 os.makedirs(sample_dir, exist_ok=True)
 
 
-def save_samples(index):
-    fixed_latent = torch.randn(64, latent_size, 1, 1)
+def save_samples(index=4):
+    fixed_latent = torch.randn(index**2, latent_size, 1, 1)
     generator.load_state_dict(torch.load("./models/G_abstract_art.pth", map_location="cpu"))
     fake_images = generator(fixed_latent)
     fake_fname = 'abs_art.png'.format(index)
     
-    save_image(denorm(fake_images), os.path.join(sample_dir, fake_fname),nrow=8)
+    save_image(denorm(fake_images), os.path.join(sample_dir, fake_fname),nrow=index)
     print('Saving', fake_fname)
     return fake_fname
 

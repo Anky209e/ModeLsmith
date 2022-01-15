@@ -18,6 +18,7 @@
             {% csrf_token %}
             <input type="submit" value="Generate">
         </form>
+        
 
         {% if gen == "True" %}
             <img src="/media/gans_images/{{img_path}}" alt="no" >

@@ -18,5 +18,57 @@
 {% endblock%}
 
 {% block content %}
-    GANS Content Here
+    <span class="high-word high-head">Generative Adversarial Networks</span> 
+    <p>
+        Generative Adversarial Networks, or GANs for short, are an approach to 
+        generative modeling using deep learning methods, such as convolutional neural networks.
+
+        Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples 
+        that plausibly could have been drawn from the original dataset.
+        <img src="/media/home/paint.gif"  style="float: right; width: 50%;" alt="">
+        
+    </p>
+    
+    
+    
+    <span class="high-word high-head">Parts of GAN</span> 
+    
+    <ul>
+        <li>Generator model that is used to generate new plausible examples from the problem domain.</li>
+        <li>Discriminator model that is used to classify examples as real (from the domain) or fake (generated)..</li>
+        
+    </ul>
+    
+    
+    <span class="high-word high-head">The Generator Model</span> 
+    <p>
+        
+        The generator model takes a fixed-length random vector as input and generates a sample in the domain.
+
+        The vector is drawn from randomly from a Gaussian distribution, and the vector is used to seed the generative process. After training, 
+        points in this multidimensional vector space will correspond to points in the problem domain, forming a compressed representation of the data distribution.
+
+        This vector space is referred to as a latent space, or a vector space comprised of latent variables. Latent variables, 
+        or hidden variables, are those variables that are important for a domain but are not directly observable.
+    </p><br>
+    <img src="https://i.imgur.com/6NMdO9u.pngf" style="float: left; width: 50%; "  alt="">
+    <span class="high-word high-head">The Dicsriminator Model</span> 
+    <p>
+        The discriminator model takes an example from the domain as input (real or generated) and predicts a binary class label of real or fake (generated).
+
+        The real example comes from the training dataset. 
+        The generated examples are output by the generator model.
+
+        The discriminator is a normal (and well understood) classification model.
+
+        After the training process, the discriminator model is 
+        discarded as we are interested in the generator.
+
+        Sometimes, the generator can be repurposed as it has learned to effectively extract features from examples in the problem domain. Some or all of the 
+        feature extraction layers can be used in transfer learning applications using the same or similar input data
+    </p>
+    <p>Learn more about <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://thispersondoesnotexist.com">human face generating</a> gan.</p>
+
+   
+
 {% endblock %}

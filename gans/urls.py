@@ -12,6 +12,7 @@ urlpatterns = [
     path("paint/", views.paint),
     path("flower/", views.flower),
     path("cat/", views.cat),
+    path("anime/", views.anime),
     
 ]
 

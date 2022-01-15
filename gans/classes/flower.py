@@ -1,10 +1,9 @@
 
-from torchvision import transforms as T
 import torch
 from torch import nn
 
 from torchvision.utils import save_image
-from torch.nn import functional as F
+
 import os
 
 stats = (0.5, 0.5, 0.5), (0.5, 0.5, 0.5)
@@ -45,13 +44,13 @@ def denorm(img_tensors):
     return img_tensors * stats[1][0] + stats[0][0]
 
 
-def save_samples(index):
-    fixed_latent = torch.randn(16, 128, 1, 1)
+def save_samples(index=4):
+    fixed_latent = torch.randn(index**2, 128, 1, 1)
     generator.load_state_dict(torch.load("./models/G_flowers.pth", map_location="cpu"))
     fake_images = generator(fixed_latent)
     fake_fname = 'flowers.png'
     
-    save_image(denorm(fake_images), os.path.join(sample_dir, fake_fname),nrow=4)
+    save_image(denorm(fake_images), os.path.join(sample_dir, fake_fname),nrow=index)
     
     return fake_fname
 
