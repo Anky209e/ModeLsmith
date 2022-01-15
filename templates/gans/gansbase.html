@@ -13,12 +13,14 @@
 {% endblock%}
 
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Generate">
+    <div class="gan">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Generate">
+        </form>
 
-    </form>
-    {% if gen == "True" %}
-    <img src="/media/gans_images/{{img_path}}" alt="no">
-    {% endif %}
+        {% if gen == "True" %}
+            <img src="/media/gans_images/{{img_path}}" alt="no" >
+        {% endif %}
+    </div>
 {% endblock %}

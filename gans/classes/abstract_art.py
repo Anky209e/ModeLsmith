@@ -51,7 +51,7 @@ def save_samples(index):
     fixed_latent = torch.randn(64, latent_size, 1, 1)
     generator.load_state_dict(torch.load("./models/G_abstract_art.pth", map_location="cpu"))
     fake_images = generator(fixed_latent)
-    fake_fname = 'abs_art-{0:0=4d}.png'.format(index)
+    fake_fname = 'abs_art.png'.format(index)
     
     save_image(denorm(fake_images), os.path.join(sample_dir, fake_fname),nrow=8)
     print('Saving', fake_fname)

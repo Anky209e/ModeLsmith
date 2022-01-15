@@ -21,7 +21,24 @@
 
     <div class="result">
         {% for class, prob in list %}
-            <span class="class">{{class}}</span>  : <span class="prob">{{prob}}%</span>  <br>
+            <br>
+            <div class="block">
+                <div class="class">
+                    {{class}} :
+                </div>
+
+                <div class="progress">
+                    <span class="prob">{{prob}}%</span>
+                    
+                    <div class="progress-bar" aria-valuenow="{{prob}}" style="width:{{prob}}%">
+                        |
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <br>      
         {% endfor %}
     </div>
 

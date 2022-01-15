@@ -5,12 +5,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path("", views.home),
+    
     path("abstract_art/", views.abstract_art),
     path("simpson/", views.simpson),
     path("paint/", views.paint),
-    path("flowers/", views.flowers),
-    path("", views.home),
-
+    path("flower/", views.flower),
+    path("cat/", views.cat),
+    
 ]
 
 

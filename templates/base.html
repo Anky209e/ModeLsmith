@@ -360,9 +360,11 @@
         border-radius: 8px 0 0 8px;
         transition: 0.4s;
     }
+
     .progress:hover{
         background-color: var(--grey);
     }
+
     .prob{
         position: absolute;
         left:60%;
@@ -372,6 +374,7 @@
         
         background-color: var(--black);
     }
+
     .progress-bar{
         color:var(--black);
         font-size: larger;
@@ -381,7 +384,16 @@
         border-radius: 8px 0 0 8px;
     }
 
-
+    .gan{
+        width: 100%;
+    }
+    .gan img{
+        display: block;
+        width: 43%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%; 
+    }
 
 </style>
 
@@ -409,11 +421,9 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     
-
+    
     <div class="content">
         <div class="breadcrumbs">
             {% block breadcrumbs %}BreadCrumbs{% endblock %} 

@@ -13,7 +13,6 @@ def home(request):
 
     for i in range(length -1):
         models[i] = models[i][:-3]
-        # models[i] = models[i].replace("_", " ")
 
     return render(request,"gans/home.html",{"list":models})
 
@@ -32,8 +31,6 @@ def simpson(request):
     if request.method == "POST":
 
         from .classes.simpson import save_samples
-        
-        
         result_pth = save_samples(1)
         
         
@@ -46,8 +43,6 @@ def paint(request):
     if request.method == "POST":
 
         from .classes.paint import save_samples
-        
-        
         result_pth = save_samples(1)
         
         
@@ -56,15 +51,23 @@ def paint(request):
         return render(request,"gans/paint.html",{"gen":"False", "name":"Painter"})
 
 
-def flowers(request):
+def flower(request):
     if request.method == "POST":
 
-        from .classes.flowers import save_samples
-        
-        
+        from .classes.flower import save_samples
         result_pth = save_samples(1)
         
         
-        return render(request,"gans/flowers.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
+        return render(request,"gans/flower.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
     else:
-        return render(request,"gans/flowers.html",{"gen":"False", "name":"Flower"})
+        return render(request,"gans/flower.html",{"gen":"False", "name":"Flower"})
+
+def cat(request):
+    if request.method == "POST":
+
+        from .classes.cat import generate
+        result_pth = generate()        
+        
+        return render(request,"gans/cat.html",{"gen":"True","img_path":result_pth, "name":"Cat"})
+    else:
+        return render(request,"gans/cat.html",{"gen":"False", "name":"Cat"})
