@@ -81,3 +81,13 @@ def anime(request):
         return render(request,"gans/anime.html",{"gen":"True","img_path":result_pth, "name":"Anime"})
     else:
         return render(request,"gans/anime.html",{"gen":"False", "name":"Cat"})
+
+def human(request):
+    if request.method == "POST":
+
+        from .classes.human import generate
+        result_pth = generate()        
+        
+        return render(request,"gans/human.html",{"gen":"True","img_path":result_pth, "name":"Cat"})
+    else:
+        return render(request,"gans/human.html",{"gen":"False", "name":"Cat"})

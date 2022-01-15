@@ -13,6 +13,7 @@ urlpatterns = [
     path("flower/", views.flower),
     path("cat/", views.cat),
     path("anime/", views.anime),
+    path("human/", views.human),
     
 ]
 
