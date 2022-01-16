@@ -1,1 +1,15 @@
-{% extends './gansbase.html'%}
+{% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses datasets of simpsons classification.</h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset is property of alexattia on kaggle.
+        It contains images of all the simpsons for classification.
+        I used all of the simpsons for GANS.
+    </p>
+    <img src="/media/home/simp-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/alexattia/the-simpsons-characters-dataset"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/Anky209e/Machine-learning/blob/main/simpsons_gans/simpsons_gans.ipynb">Code at Github.</a></p>
+{% endblock%}

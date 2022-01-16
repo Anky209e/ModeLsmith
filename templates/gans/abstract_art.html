@@ -1,2 +1,18 @@
-{% extends './gansbase.html'%}
+{% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses two datasets of abstract art.</h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset contains 2782 files of abstract images.
+        these images are downloaded from a website to try to generate abstract images based on this whole dataset using GANs.
+
+        If you like implementing research papers from scratch, you can get started from this topic on GANs as reference.
+    </p>
+    <img src="/media/home/abs-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/bryanb/abstract-art-gallery"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/Anky209e/Machine-learning/blob/main/abstract_art_gans/abstract_art_gans.ipynb">Code at Github.</a></p>
+{% endblock%}
+
 

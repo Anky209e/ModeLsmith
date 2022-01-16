@@ -1,1 +1,15 @@
 {% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses datasets of cat images.</h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        The CAT dataset includes over 9,000 cat images. For each image, there 
+        are annotations of the head of cat with 
+        nine points, two for eyes, one for mouth, and six for ears.
+    </p>
+    <img src="/media/home/cat-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/splcher/animefacedataset"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/AshuAhlawat/Machine-Learning/blob/main/PyTorch/12gan-cats.ipynb">Code at Github.</a></p>
+{% endblock%}

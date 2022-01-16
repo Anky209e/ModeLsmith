@@ -43,7 +43,7 @@ def paint(request):
     if request.method == "POST":
 
         from .classes.paint import save_samples
-        result_pth = save_samples(3)
+        result_pth = save_samples(4)
         
         
         return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth, "name":"Painter"})
@@ -80,7 +80,7 @@ def anime(request):
         
         return render(request,"gans/anime.html",{"gen":"True","img_path":result_pth, "name":"Anime"})
     else:
-        return render(request,"gans/anime.html",{"gen":"False", "name":"Cat"})
+        return render(request,"gans/anime.html",{"gen":"False", "name":"Anime"})
 
 def human(request):
     if request.method == "POST":
@@ -88,6 +88,6 @@ def human(request):
         from .classes.human import generate
         result_pth = generate()        
         
-        return render(request,"gans/human.html",{"gen":"True","img_path":result_pth, "name":"Cat"})
+        return render(request,"gans/human.html",{"gen":"True","img_path":result_pth, "name":"Human"})
     else:
-        return render(request,"gans/human.html",{"gen":"False", "name":"Cat"})
+        return render(request,"gans/human.html",{"gen":"False", "name":"Human"})

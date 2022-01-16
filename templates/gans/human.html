@@ -1,1 +1,17 @@
 {% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses same dataset of <a style="color: #bd93f9; text-decoration: none;" href="/cnn/gender/">Gender detection.</a></h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset is great for training and testing models for face detection, 
+        particularly for recognizing facial attributes such as finding people with 
+        brown hair, are smiling, or wearing glasses. Images cover large pose variations, 
+        background clutter, diverse people, 
+        supported by a large number of images and rich annotations.
+    </p>
+    <img src="/media/home/human-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/cashutosh/gender-classification-dataset"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/AshuAhlawat/Machine-Learning/blob/main/PyTorch/12gan-humans.ipynb">Code at Github.</a></p>
+{% endblock%}

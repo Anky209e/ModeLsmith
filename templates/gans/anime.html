@@ -1,1 +1,16 @@
 {% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses two datasets of famous anime faces.</h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset is property of Spencer Churchill on kaggle
+        This dataset is often used for varying projects with anime faces
+        This dataset has 63,632 "high-quality" anime faces… but let's be real… all anime girls are high-quality. 
+        I just want to generate perfect waifus. It's a simple dream. I will expand and alter this dataset to move towards a pure dataset of cute female anime faces.
+    </p>
+    <img src="/media/home/anime-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/splcher/animefacedataset"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/Anky209e/Machine-learning/blob/main/anime_face_gans/anime_gans.ipynb">Code at Github.</a></p>
+{% endblock%}

@@ -1,1 +1,15 @@
-{% extends './gansbase.html'%}
+{% extends './gansbase.html' %}
+{% block info%}
+    <h3 style="color: grey;">This GAN uses two datasets of flowers classification.</h3>
+    
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This dataset contains 4242 images of flowers.
+        The data collection is based on the data flicr, google images, yandex images.
+        You can use this datastet to recognize plants from the photo.
+    </p>
+    <img src="/media/home/flower-info.gif" style="width: 100%;" alt="">
+    <p>Train your own model by<a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/alxmamaev/flowers-recognition"> downloading the dataset.</a>
+
+    <p>See our <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://github.com/Anky209e/Machine-learning/blob/main/flower_pattern_gans/flower_pattern_gans.ipynb.ipynb">Code at Github.</a></p>
+{% endblock%}
