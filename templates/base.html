@@ -335,11 +335,13 @@
         border-color: var(--green);
         cursor: pointer;
         transition: 0.5s;
+        text-align: center;
+        
 
         /* border-image-source: linear-gradient(240deg,var(--pink),var(--purple), var(--blue), var(--green)); */
 
         background-color: var(--black);
-        padding: 1%;
+        padding: 5%;
         width: 100%;    
     }
 
@@ -411,6 +413,8 @@
         margin-top:4%;
     }
 
+
+
 </style>
 
 <body>
@@ -454,7 +458,7 @@
             {% block info-title %} Info Title {% endblock %}
         </div>
         <div class="data">
-            {% block info %} The urls and extra data {% endblock %}
+            {% block info %} {% endblock %}
         </div>
     </div>
 </body>
