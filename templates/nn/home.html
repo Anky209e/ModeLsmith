@@ -31,22 +31,67 @@
         The neural network which has action functions like relu, sigmoid or tanh in any of its 
         layer or even in more than one layer is called non-linear neural network.
     </p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Neural_network_example.svg/800px-Neural_network_example.svg.png" style="height: 500px; width: 40%;" alt="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Neural_network_example.svg/800px-Neural_network_example.svg.png" style="height: 400px; width: 35%;" alt="" style="float: left;">
     
+    <div style="width:55%; float: right;">
+        <div class="high-word high-head">Key TakeAways</div>
+        <ul>
+            <li>Neural networks are a series of algorithms that mimic the operations of an animal brain to recognize relationships between vast amounts of data.</li>
+            <li>As such, they tend to resemble the connections of neurons and synapses found in the brain.</li>
+            <li>They are used in a variety of applications in financial services, from forecasting and marketing research to fraud detection and risk assessment.</li>
+            <li>Neural networks with several process layers are known as "deep" networks and are used for deep learning algorithms</li>
+            <li>The success of neural networks for stock market price prediction varies.</li>
+        </ul>
 
-    <div class="high-word high-head">Key TakeAways</div>
-    <ul>
-        <li>Neural networks are a series of algorithms that mimic the operations of an animal brain to recognize relationships between vast amounts of data.</li>
-        <li>As such, they tend to resemble the connections of neurons and synapses found in the brain.</li>
-        <li>They are used in a variety of applications in financial services, from forecasting and marketing research to fraud detection and risk assessment.</li>
-        <li>Neural networks with several process layers are known as "deep" networks and are used for deep learning algorithms</li>
-        <li>The success of neural networks for stock market price prediction varies.</li>
-    </ul>
+        <p>
+            Hidden layers fine-tune the input weightings until the neural network’s margin of error is minimal. It is hypothesized that hidden layers extrapolate salient features in the input data that have predictive power regarding the outputs. This describes feature extraction, which accomplishes a utility similar to statistical techniques such as principal component analysis. 
+        </p>
+    </div>
 
-    <p>
-        Hidden layers fine-tune the input weightings until the neural network’s margin of error is minimal. It is hypothesized that hidden layers extrapolate salient features in the input data that have predictive power regarding the outputs. This describes feature extraction, which accomplishes a utility similar to statistical techniques such as principal component analysis. 
-    </p>
-    
+    <div>
+        <div style="width: 46%; float: left;">
+            <span class="high-word high-head">Linear Regression</span> 
+            <p>Linear regression may be both the simplest and most popular among the standard tools to regression. 
+                Dating back to the dawn of the 19th century, linear regression flows from a few simple assumptions. First, we assume that the relationship between the independent variables x and the dependent variable y is linear, i.e., 
+                that y can be expressed as a weighted sum of the elements in x, given some noise on the observations. 
+                Second, we assume that any noise is well-behaved 
+            </p>
+            <img src="https://miro.medium.com/max/1400/1*aDeaim7khcLZrhPcDlYUPg.png" style="width: 75%; height: 75%;" alt=""><br>
+        </div>
+        
+        <div style="width: 50%; float: right;">
+            <span class="high-word high-head">Loss Function</span> 
+            <p>
+                The loss function quantifies the distance between the real and predicted value of the target. 
+                The loss will usually be a non-negative number where smaller values are better and perfect predictions incur a loss of 0.
+                The most popular loss function in regression problems is the squared error.
+            </p>
+            <img src="https://miro.medium.com/max/513/1*SGhoeJ_BgcfqU06CmX41rw.png" style="width: 100%;" alt="">
+        </div>        
+    </div>
+
+    <div style="margin-top:20px;float: left; width: 100%;">
+        <div style="float: left; width: 46%;">
+            <span class="high-word high-head">Sigmoid Function</span> 
+            <p>
+                The sigmoid function is used as an activation function in neural networks. 
+                Just to review what is an activation function, the figure below shows the role of an activation function in one layer of a neural network. 
+                A weighted sum of inputs is passed through an activation function and this output serves as an input to the next layer. 
+            </p>
+            <img src="https://machinelearningmastery.com/wp-content/uploads/2021/08/sigmoidUnit.png" style="width: 100%;" alt="">
+        </div>
+        
+        <div style="float: right; width: 50%;">
+            <p>
+            When the activation function for a neuron is a sigmoid function it is a guarantee that the output of this unit will always be between 0 and 1.
+            Also, as the sigmoid is a non-linear function, the output of this unit would be a non-linear function of the weighted sum of inputs.
+            Such a neuron that employs a sigmoid function as an activation function is termed as a sigmoid unit.
+        </p>
+        
+        <img src="https://www.gstatic.com/education/formulas2/397133473/en/sigmoid_function.svg" style="width: 100%;" alt="">
+        </div>
+        
+    </div>
 
 
 {% endblock %}
