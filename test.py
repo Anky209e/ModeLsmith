@@ -1,3 +1,6 @@
-x = "Screen Shot"
+x = ["2","5"]
 
-print(x.replace(" ", "_"))
+try:
+    x.remove("1")
+except:
+    pass
