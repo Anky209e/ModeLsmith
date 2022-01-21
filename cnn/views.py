@@ -6,14 +6,11 @@ import os
 def home(request):
 
     models = os.listdir("./cnn/classes")
-    length = len(models)
 
-    for i in range(length):
-        if models[i] == '__pycache__':
-            del(models[i])
-            break
+    if "__pycache__" in models:
+        models.remove("__pycache__")
 
-    for i in range(length -1):
+    for i in range(len(models)):
         models[i] = models[i][:-3]
 
     return render(request,"cnn/home.html", {"list":models})
