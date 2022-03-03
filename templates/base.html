@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <!-- <link rel="shortcut icon" type="image/png" href=""/> -->
 
 </head>
 
@@ -107,7 +106,7 @@
 
     }
 
-    .drop-right{
+    .contact{
         position: absolute;
         right: 3%;
     }
@@ -147,12 +146,10 @@
         width: 100%;
         padding: 7px;
         
-        
-        
         background-color: var(--grey);
         color: var(--pink);
         font-family: "Chakra Petch";
-        font-size: larger;
+        font-size: x-large;
         border-radius: 10px 10px 0px 0px;
         border-bottom: 1px solid var(--pink);
     }
@@ -424,7 +421,7 @@
         position: static;
         display: flex;
         width:100%;
-        height: 80px;
+        height: 120px;
         
         background-color: rgba(0, 0, 0, 0);
         border-radius: 0px 0px 20px 20px;
@@ -452,7 +449,7 @@
     .logo {
         position: relative;
         height: 100%;
-        width: 8%;
+        width: 23%;
 
         float: left;
     }
@@ -467,43 +464,71 @@
     
     .navbar{
         position: absolute;
-        display:flex;
+        display: block;
 
         right: 0%;
         top: 0.5%;
 
-        height: fit-content;
-        width:91%;
+        height: 120px;
+        width:70%;
 
-
-        padding-left: 0;
     }
     
     .dropdown {
         position:static;
         display:block;
+        width: 48%;
+        /* height: 49%; */
 
-        float: left;
+        float:none;
         background-color: var(--grey);
-        border: 4px solid var(--purple);
+        border: 3px solid var(--purple);
         border-radius: 4px;
-        
-        padding:4px;
+    
         
         text-align: center;
         
         transition: 0.5s;
 
-        margin-left: 1.5%;
+        margin-left: 0.5%;
 
         height: fit-content;
+        overflow: hidden;
     }
-    
 
-    .drop-right{
+    .nn{
         position: absolute;
-        right: 1.5%;
-        margin-left: 10%;
+        
+        left :0;
+        top: 0;
+    }
+    .cnn{
+        position: absolute;
+        right :1%;
+        top: 0;
+    }
+    .gans{
+        position: absolute;
+
+        left :0;
+        bottom: 0;
+    }
+    .contact{
+        position: absolute;
+        right:1%;
+        bottom:0;
+    }
+
+    .drop-down-links{
+        display: block;
+        color:var(--pink);
+        font-size: medium;
+        font-family: "Poppins";
+
+        text-decoration: none;
+        transition: 0.4s;
+
+        padding: 0;
     }
 
     .dropdown:hover {
@@ -518,9 +543,14 @@
     }
     
     .side ul{
-        font-size: large;
+        font-size: medium;
         font-family: "Poppins";
     }
+
+    .breadcrumbs{
+        font-size: large;
+    }
+
 }
 
 </style>
@@ -534,23 +564,23 @@
         </div>
 
         <div class="navbar">
-            <div class="dropdown">
+            <div class="dropdown nn">
                 <a class="drop-down-links" href="/nn">Neural<br> Network</a>
             </div>
-            <div class="dropdown">
+            <div class="dropdown cnn">
                 <a class="drop-down-links" href="/cnn">Convolutional<br> NeuralNet</a>
             </div>
-            <div class="dropdown">
+            <div class="dropdown gans">
                 <a class="drop-down-links" href="/gans">Generative<br> AdversialNet</a>
             </div>
-            <div class="dropdown drop-right" >
+            <div class="dropdown contact" >
                 <a class="drop-down-links" href="/about" style="color: var(--orange);">About / <br> Contact</a>
             </div>
         </div>
     </div>
     
     <div class="side">
-        <div class="breadcrumbs"  style="font-size: x-large;">
+        <div class="breadcrumbs">
             {% block info-title %} Info Title {% endblock %}
         </div>
         <div class="data">
