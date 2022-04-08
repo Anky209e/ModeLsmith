@@ -8,4 +8,5 @@ cd -path-to-manage.py-
 python manage.py runserver
 
 ```
+![](http://modelsmith.info/media/home/gan-all.gif)
 
