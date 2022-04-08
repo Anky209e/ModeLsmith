@@ -4,7 +4,13 @@
 # Commands to run locally
 ```
 pip install django
+
+```
+```
 cd -path-to-manage.py-
+
+```
+```
 python manage.py runserver
 
 ```
