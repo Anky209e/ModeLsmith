@@ -80,6 +80,8 @@ def predict_gender(path):
 
     transform = ToTensor()
     img_tensor = transform(img)
+    img_tensor = img_tensor[:3]
+    
     img_tensor = torch.reshape(img_tensor, (1,3,96,64))
     
     pred = pred_model(img_tensor).detach()

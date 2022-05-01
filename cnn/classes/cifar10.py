@@ -92,6 +92,8 @@ def predict_cifar10(path):
 
     transform = ToTensor()
     img_tensor = transform(img)
+    img_tensor = img_tensor[:3]
+
     img_tensor =torch.reshape(img_tensor , (1,3,32,32))
 
     for i in range(3):

@@ -53,6 +53,8 @@ def predict_maleria(path_to_image):
     
     transform = ToTensor()
     img_tensor = transform(img)
+    img_tensor = img_tensor[:3]
+    
     img_tensor = torch.reshape(img_tensor, (1,3,64,64))
 
     model_pred = MaleriaModel()
