@@ -1,0 +1,23 @@
+{% extends './cnnbase.html' %}
+
+
+{% block info %}
+    <span class="high-word high-head">Output</span>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>...</li>
+        <li>Z</li>
+    </ul>
+    <h3 style="color: var(--grey);">This model uses Convolutional Neural Network about 8 layers deep.</h3>
+    <span class="high-word high-head">Dataset</span> 
+    <p>
+        This model was made under a day for the <a target="_blank" href="https://reskilll.com/tgih">TGI Hackathon</a> and trained using about 180K images of American Sign Language alphabet images which won my team 2nd place.
+    </p>
+    <p>To just look at the dataset or to train your own model <a target="_blank" href="https://www.kaggle.com/datasets/debashishsau/aslamerican-sign-language-aplhabet-dataset"> go here!</a></p>
+
+    <img src="/media/home/eyensign.jpeg" alt="">
+
+    <p>See our <a target="_blank" href="https://github.com/AshuAhlawat/tgi_hackathon">Code at Github.</a></p>
+
+{% endblock %}
