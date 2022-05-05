@@ -67,7 +67,7 @@ class ResNet10(torch.nn.Module):
         return out      
 
 
-def predict_gender(path):
+def predict(path):
     img = Image.open(path)
     
     if img.size != (64,96):

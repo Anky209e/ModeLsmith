@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 import os
 
-class MaleriaModel(torch.nn.Module):
+class CNN7(torch.nn.Module):
     def __init__(self):
         super().__init__()
 
@@ -43,21 +43,22 @@ class MaleriaModel(torch.nn.Module):
         out = self.network(inputs)
         return torch.softmax(out, dim=-1)
 
-def predict_maleria(path_to_image):
+def predict(path_to_image):
+    size = 64
 
     img = Image.open(path_to_image)
     img_cls = ["Infected", "uninfected"]
 
-    if img.size != (64,64):
-        img = img.resize((64,64))
+    if img.size != (size,size):
+        img = img.resize((size,size))
     
     transform = ToTensor()
     img_tensor = transform(img)
     img_tensor = img_tensor[:3]
     
-    img_tensor = torch.reshape(img_tensor, (1,3,64,64))
+    img_tensor = torch.reshape(img_tensor, (1,3,size,size))
 
-    model_pred = MaleriaModel()
+    model_pred = CNN7()
     model_pred.load_state_dict(torch.load("./models/Maleria_CNN7_acc96.pth",map_location=torch.device("cpu")))
 
     pred = model_pred(img_tensor).detach()

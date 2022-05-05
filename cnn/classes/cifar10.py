@@ -80,11 +80,13 @@ class ResNet12(torch.nn.Module):
         
         return out
 
-def predict_cifar10(path):
+def predict(path):
+    size = 32
+
     img = Image.open(path)
     
-    if img.size != (32,32):
-        img = img.resize((32,32))
+    if img.size != (size,size):
+        img = img.resize((size,size))
     
     mean = (0.4914, 0.4822, 0.4465)
     dev = (0.247, 0.2435, 0.2616)
@@ -94,7 +96,7 @@ def predict_cifar10(path):
     img_tensor = transform(img)
     img_tensor = img_tensor[:3]
 
-    img_tensor =torch.reshape(img_tensor , (1,3,32,32))
+    img_tensor =torch.reshape(img_tensor , (1,3,size,size))
 
     for i in range(3):
         img_tensor[0][i] = (img_tensor[0][i]-mean[i])/dev[i] 
