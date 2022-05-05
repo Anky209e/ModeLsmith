@@ -17,7 +17,7 @@
     <form action="" method="post"  enctype="multipart/form-data" class="cnn">
         {% csrf_token %}
         {{ image_form }}
-
+        
         <input type="submit" value="Upload" class="submit">
     </form>
     {% else %}
@@ -35,7 +35,7 @@
 
                 <div class="progress">
                     <span class="prob">{{prob}}%</span>
-                    
+
                     <div class="progress-bar" aria-valuenow="{{prob}}" style="width:{{prob}}%">
                         |
                     </div>
