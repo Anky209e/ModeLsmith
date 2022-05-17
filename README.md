@@ -1,5 +1,5 @@
 # ModeLsmith
-![Logo](http://modelsmith.info/media/home/logo.png)
+![Logo](media/favicon.ico)
 ## A machine learning website created using Django.You can test our models of Cnn,Gans.etc.and see them working in real time. 
 
 # Commands to run locally
