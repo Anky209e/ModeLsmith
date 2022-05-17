@@ -11,6 +11,7 @@ urlpatterns = [
     path("simpson/", views.simpson),
     path("paint/", views.paint),
     path("flower/", views.flower),
+    path("flower_imit/", views.flower_imit),
     path("cat/", views.cat),
     path("anime/", views.anime),
     path("human/", views.human),

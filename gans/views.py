@@ -59,6 +59,17 @@ def flower(request):
     else:
         return render(request,"gans/flower.html",{"gen":"False", "name":"Flower"})
 
+def flower_imit(request):
+    if request.method == "POST":
+
+        from .classes.flower_imit import save_samples
+        result_pth = save_samples(4)
+        
+        
+        return render(request,"gans/flower_imit.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
+    else:
+        return render(request,"gans/flower_imit.html",{"gen":"False", "name":"Flower"})
+
 def cat(request):
     if request.method == "POST":
 
