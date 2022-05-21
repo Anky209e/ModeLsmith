@@ -66,9 +66,9 @@ def flower_imit(request):
         result_pth = save_samples(4)
         
         
-        return render(request,"gans/flower_imit.html",{"gen":"True","img_path":result_pth, "name":"Flower"})
+        return render(request,"gans/flower_imit.html",{"gen":"True","img_path":result_pth, "name":"Flower_imit"})
     else:
-        return render(request,"gans/flower_imit.html",{"gen":"False", "name":"Flower"})
+        return render(request,"gans/flower_imit.html",{"gen":"False", "name":"Flower_imit"})
 
 def cat(request):
     if request.method == "POST":
@@ -99,3 +99,14 @@ def human(request):
         return render(request,"gans/human.html",{"gen":"True","img_path":result_pth, "name":"Human"})
     else:
         return render(request,"gans/human.html",{"gen":"False", "name":"Human"})
+
+def dark_matter(request):
+    if request.method == "POST":
+
+        from .classes.dark_matter import save_samples
+        result_pth = save_samples(4)
+        
+        
+        return render(request,"gans/dark_matter.html",{"gen":"True","img_path":result_pth, "name":"matter"})
+    else:
+        return render(request,"gans/dark_matter.html",{"gen":"False", "name":"matter"})

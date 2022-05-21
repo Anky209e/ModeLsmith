@@ -15,6 +15,7 @@ urlpatterns = [
     path("cat/", views.cat),
     path("anime/", views.anime),
     path("human/", views.human),
+    path("dark_matter/", views.dark_matter),
     
 ]
 
