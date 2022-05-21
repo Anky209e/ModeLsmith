@@ -109,7 +109,7 @@ def eyensign(request):
         return render(request, html_path, {"image_form": form, "name":name})
     
 def lens_structure(request):
-    name = "lens_structure"
+    name = "Lens structure"
     html_path = "cnn/lens_structure.html"
 
     if request.method =="POST":        
@@ -132,7 +132,7 @@ def lens_structure(request):
         return render(request, html_path, {"image_form": image_form, "name":name})
 
 def ring_classifier(request):
-    name = "ring_classifier"
+    name = "Ring classifier"
     html_path = "cnn/ring_classifier.html"
 
     if request.method =="POST":        
