@@ -1,0 +1,30 @@
+{% extends './cnnbase.html' %}
+
+
+{% block info %}
+    <span class="high-word high-head">Output</span>
+    <ul>
+        <li>No Substructure</li>
+        <li>Substructure</li>
+    </ul>
+    <h3 style="color: var(--grey);">This model uses RESNET..</h3>
+    
+    <img src="/media/home/model_res.png" style="width: 100%;" alt="">
+    
+    <span class="high-word high-head">ResNet</span>   
+    <p>
+        The problem of training very deep networks has been alleviated with the introduction of a new neural network layer — The Residual Block.
+        <br>
+        classical CNNs do not perform well as the depth of the network grows past a certain threshold. ResNets allow for the training of deeper networks.
+    </p>
+    <img src="https://miro.medium.com/max/434/0*sGlmENAXIZhSqyFZ" alt="">
+    <!-- <span class="high-word high-head">Dataset</span>  -->
+    <p>
+        This network classifies presence of substructure in images of dark matter rings taken by gravitaional lensing. 
+    </p>
+    <!-- <p>Train your own model by <a target="_blank" href="https://www.kaggle.com/cashutosh/gender-classification-dataset">downloading the dataset.</a></p> -->
+    
+    <p>See our <a target="_blank" href="https://github.com/Anky209e/ML4SC_GSoc22">Code at Github.</a></p>
+
+
+{% endblock %}

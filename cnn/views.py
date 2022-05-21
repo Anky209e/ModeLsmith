@@ -107,3 +107,49 @@ def eyensign(request):
     else:
         form = ImageForm()
         return render(request, html_path, {"image_form": form, "name":name})
+    
+def lens_structure(request):
+    name = "lens_structure"
+    html_path = "cnn/lens_structure.html"
+
+    if request.method =="POST":        
+        form = ImageForm(request.POST, request.FILES)
+        try:
+            if form.is_valid():
+                form.save()
+        except:
+            pass
+
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"]).replace(" ", "_")
+            
+        from .classes.lens_structure import predict
+        result = predict(img_path)
+
+        return render(request, html_path, {"image_form": None, "name":name, "list":result})
+    else:
+        image_form = ImageForm()
+
+        return render(request, html_path, {"image_form": image_form, "name":name})
+
+def ring_classifier(request):
+    name = "ring_classifier"
+    html_path = "cnn/ring_classifier.html"
+
+    if request.method =="POST":        
+        form = ImageForm(request.POST, request.FILES)
+        try:
+            if form.is_valid():
+                form.save()
+        except:
+            pass
+
+        img_path ="./media/cnn_images/" + str(request.FILES["image_field"]).replace(" ", "_")
+            
+        from .classes.ring_classifier import predict
+        result = predict(img_path)
+
+        return render(request, html_path, {"image_form": None, "name":name, "list":result})
+    else:
+        image_form = ImageForm()
+
+        return render(request, html_path, {"image_form": image_form, "name":name})

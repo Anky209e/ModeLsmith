@@ -9,6 +9,8 @@ urlpatterns = [
     path("cifar10/", views.cifar10),
     path("gender/", views.gender),
     path("eyensign/", views.eyensign),
+    path("lens_structure/", views.lens_structure),
+    path("ring_classifier/", views.ring_classifier),
     path("", views.home),
 ]
 
