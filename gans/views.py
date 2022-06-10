@@ -40,7 +40,7 @@ def paint(request):
     if request.method == "POST":
 
         from .classes.paint import save_samples
-        result_pth = save_samples(4)
+        result_pth = save_samples(2)
         
         
         return render(request,"gans/paint.html",{"gen":"True","img_path":result_pth, "name":"Painter"})
@@ -63,7 +63,7 @@ def flower_imit(request):
     if request.method == "POST":
 
         from .classes.flower_imit import save_samples
-        result_pth = save_samples(4)
+        result_pth = save_samples(2)
         
         
         return render(request,"gans/flower_imit.html",{"gen":"True","img_path":result_pth, "name":"Flower_imit"})
