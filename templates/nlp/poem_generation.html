@@ -1,0 +1,40 @@
+{% extends './nlpbase.html' %}
+
+{% block info %}
+	<span class="high-word high-head">NLP Poem Generation</span>
+    <h3 style="color: gray;">This model uses Embedding and LSTM</h3>
+
+    <p>
+        Long short-term memory (LSTM) is an artificial neural network used in 
+        the fields of artificial intelligence and deep learning. 
+        Unlike standard feedforward neural networks, LSTM has feedback connections. 
+    </p>
+    <img src="/media/home/poem_model.png" style="width: 100%;" alt="">
+    <p>
+        A common LSTM unit is composed of a cell, an input gate, an output gate
+        and a forget gate.The cell remembers values over arbitrary time intervals and the 
+        three gates regulate the flow of information into and out of the cell. 
+    </p>
+    <span class="high-word high-head">Dataset Information</span> 
+    <p>
+        This Model Uses Irish Poem Dataset.
+        Which Contains some lines of Irish Poems.
+    </p>
+        <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://storage.googleapis.com/laurencemoroney-blog.appspot.com/irish-lyrics-eof.txt">Download Dataset</a>
+    
+    <p>Learn more about
+    <a href="/nn/nlp/" style="color: #bd93f9; text-decoration: none;">NLP</a>
+    </p>
+    
+
+{% endblock %}
+
+{% block inputs %}
+    <form action="" method="post">
+        {% csrf_token %}
+        Starting Words for Poem:<input type="text" name="sl" placeholder="Oh Little Children come to the tree" required><br>
+
+        <br>
+        <input type="submit" value="submit"> 
+    </form>
+{% endblock %}

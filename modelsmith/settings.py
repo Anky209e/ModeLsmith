@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nn',
     'cnn',
-    'gans'
+    'gans',
+    'nlp'
 ]
 
 MIDDLEWARE = [

@@ -6,47 +6,27 @@
 
 > *Developers* : [Ankit Kumar](https://github.com/Anky209e),[Ashwani Ahlawat](https://github.com/AshuAhlawat)
 
-![ModeLsmith](media/demo.jpg)
+![ModeLsmith](media/home/site.png)
 
 > Project Directory Structure
 ```
 .
 ├── app
 │   ├── cnn
-│   │   ├── classes
-│   │   │   └── __pycache__
-│   │   └── __pycache__
 │   ├── gans
-│   │   ├── classes
-│   │   │   └── __pycache__
-│   │   ├── migrations
-│   │   │   └── __pycache__
-│   │   └── __pycache__
 │   ├── media
-│   │   ├── cnn_images
-│   │   ├── gans_images
-│   │   └── home
 │   ├── models
 │   ├── modelsmith
-│   │   └── __pycache__
 │   ├── nn
-│   │   ├── classes
-│   │   ├── migrations
-│   │   │   └── __pycache__
-│   │   └── __pycache__
 │   └── templates
-│       ├── cnn
-│       ├── gans
-│       ├── home
-│       └── nn
 ├── cnn
 │   ├── classes
 │   └── __pycache__
+├── data
+│   └── nlp
 ├── gans
 │   ├── classes
-│   │   └── __pycache__
 │   ├── migrations
-│   │   └── __pycache__
 │   └── __pycache__
 ├── media
 │   ├── gans_images
@@ -54,19 +34,24 @@
 ├── models
 ├── modelsmith
 │   └── __pycache__
+├── nlp
+│   ├── classes
+│   ├── migrations
+│   └── __pycache__
 ├── nn
 │   ├── classes
 │   ├── migrations
-│   │   └── __pycache__
 │   └── __pycache__
 └── templates
     ├── cnn
     ├── gans
     ├── home
+    ├── nlp
     └── nn
 ```
 
 ## Setting up Environment and Running
+
 ```bash
 cd /path/to/directory
 python -m pip install -r requirements.txt

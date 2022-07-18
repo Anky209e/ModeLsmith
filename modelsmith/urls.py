@@ -10,6 +10,8 @@ urlpatterns = [
     path('nn/', include("nn.urls")),
     path('cnn/', include("cnn.urls")),   
     path('gans/', include("gans.urls")), 
+    path('nlp/', include("nlp.urls")), 
+
     path('', views.base), 
     path('home/', views.home), 
     path('about/', views.about)

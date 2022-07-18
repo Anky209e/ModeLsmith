@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}MLS NLP{% endblock %}
+
+{% block breadcrumbs %}
+<a href="/home">Home</a> / <span style="color: var(--purple); font-size: x-large;">NLP</span> /
+{% endblock %}
+
+{% block info-title %}Models{% endblock %}
+
+{% block info%}
+    <br> 
+    <ul>
+        {% for i in list%}
+            <li><a href="/nlp/{{i}}">{{i}}</a></li><br>
+        {% endfor %}
+    </ul>
+{% endblock%}
+
+{% block content %}
+    <div style="float:left;text-align: left; width: 100;">
+        <img src="./media/home/nlp_token.png" alt="" style="float: left; margin-right: 10px;" width="50%">
+        <p>
+            <span class="high-word" style="font-size: large;">NLP </span> stands for Natural Language Processing, which is a part of Computer Science, Human language, and Artificial Intelligence.
+        </p>
+        <p>
+            It is the technology that is used by machines to understand, analyse, manipulate, and interpret human's languages. It helps developers to organize knowledge for performing tasks such as translation, automatic summarization, Named Entity Recognition (NER), speech recognition, relationship extraction, and topic segmentation.
+        </p>
+       
+    </div>
+
+    <div style="float:left;text-align:start; width: 100%;">
+        <img src="./media/home/nlp_demo.gif" alt="" style="float: right; margin-left: 10px;" width="30%">
+        
+        <p>
+            <span class="high-word">Natural Language Understanding (NLU)</span>
+        </p>
+        <p>
+            Natural Language Understanding (NLU) helps the machine to understand and analyse human language by extracting the metadata from content such as concepts, entities, keywords, emotion, relations, and semantic roles.
+            NLU mainly used in Business applications to understand the customer's problem in both spoken and written language.
+        </p>
+            <span class="high-line">NLU involves the following tasks:</span>
+            <ul>
+                <li>It is used to map the given input into useful representation.</li>
+                <li>It is used to analyze different aspects of the language.</li>
+            </ul>
+    </div>
+    <div style="float:left;text-align:start; width: 100%;">
+        <img src="./media/home/what-is-nlp.png" alt="" style="float: left; margin-right: 10px;" width="30%">
+        
+        <p>
+            <span class="high-word">Natural Language Generation (NLG))</span>
+        </p>
+        <p>
+            Natural Language Generation (NLG) acts as a translator that converts the computerized data into natural 
+            language representation. It mainly involves Text planning, Sentence planning, and Text Realization.
+        </p>
+            <span class="high-line">Applications of NLP:</span>
+            <ul>
+                <li>Question Answering</li>
+                <li>Spam Detection</li>
+                <li>Sentiment Analysis</li>
+                <li>Machine Translation</li>
+                <li>Spelling correction</li>
+                <li>& I dont want to type all of them.</li>
+            </ul>
+    </div>
+    
+    
+{% endblock %}
