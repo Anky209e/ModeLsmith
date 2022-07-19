@@ -24,3 +24,15 @@ def poem_generation(request):
 
     else:
         return render(request, "nlp/poem_generation.html", {"list": [], "name":"Poem Generation"})
+
+def sarcastic_news(request):
+    if request.method =="POST":
+        from .classes.sarcastic_news import predict_sarcasm
+
+        sl = str(request.POST.get("sl"))
+
+        result = predict_sarcasm(sl)
+        return render(request, "nlp/sarcastic_news.html", {"list": result, "name":"Sarcastic News"})
+
+    else:
+        return render(request, "nlp/sarcastic_news.html", {"list": [], "name":"Sarcastic News"})

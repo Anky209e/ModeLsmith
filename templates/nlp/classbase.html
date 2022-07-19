@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} {{name}} NN {% endblock %}
+
+{% block breadcrumbs %}
+<a href="/home">Home</a> / <a href="/nn">NLP</a> /<span style="color: var(--purple); font-size: x-large;">{% block model %}{{name}}{% endblock %}</span>
+{% endblock %}
+
+{% block info-title %}Info{% endblock %}
+
+{% block info%}
+    INFO about model here
+{% endblock%}
+
+{% block content %}
+    {% block inputs %}
+    {% endblock %}
+        
+    <br>
+    <br>
+
+    <div class="result">
+        {% for class, prob in list %}
+            <br>
+            <div class="block">
+                <div class="class">
+                    {{class}} :
+                </div>
+
+                <div class="progress">
+                    <span class="prob">{{prob}}%</span>
+                    
+                    <div class="progress-bar" aria-valuenow="{{prob}}" style="width:{{prob}}%">
+                        |
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <br>      
+        {% endfor %}
+    </div>
+
+{% endblock %}
