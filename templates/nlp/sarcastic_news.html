@@ -1,0 +1,42 @@
+{% extends './classbase.html' %}
+
+{% block info %}
+	<span class="high-word high-head">Sarcastic News</span>
+    <h3 style="color: gray;">This model uses Embedding and Global Average Pooling</h3>
+
+    <p>
+        In natural language processing (NLP), word embedding is a term used for the representation 
+        of words for text analysis, typically in the form of a real-valued vector that encodes the meaning of 
+        the word such that the words that are closer in the vector space are expected to be similar in meaning. 
+    </p>
+    <img src="/media/home/news_model.png" style="width: 100%;" alt="">
+    <p>
+        Word Embeddings are a method of extracting features out of text so that we can input those
+        features into a machine learning model to work with text data. They try to preserve syntactical 
+        and semantic information. The methods such as Bag of Words(BOW), 
+        CountVectorizer and TFIDF rely on the word count in a sentence but do not save any syntactical or semantic information.
+    </p>
+    <img src="/media/home/news_cbow.png" style="width: 100%;" alt="">
+    <span class="high-word high-head">Dataset Information</span> 
+    <p>
+        This model uses News Headlines Dataset for Sarcasm Detection.
+        This Dataset contains news Headline with and without Sarcasm.
+    </p>
+        <a style="color: #bd93f9; text-decoration: none;" target="_blank" href="https://www.kaggle.com/datasets/rmisra/news-headlines-dataset-for-sarcasm-detection">Download Dataset</a>
+    
+    <p>Learn more about
+    <a href="/nn/nlp/" style="color: #bd93f9; text-decoration: none;">NLP</a>
+    </p>
+    
+
+{% endblock %}
+
+{% block inputs %}
+    <form action="" method="post">
+        {% csrf_token %}
+        News Headline:<input type="text" name="sl" placeholder="Man eating mcchicken sandwich can tell mcdonald's switched up antibiotics" required><br>
+
+        <br>
+        <input type="submit" value="submit"> 
+    </form>
+{% endblock %}
