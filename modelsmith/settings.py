@@ -20,8 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+from .key_generator import get_key
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'nm28ybuna=d&()@mo7vnmbprxbo-yb%k1y9=zy80pmj5&@yfku'
+key_used = get_key()
+print(f"Using Key {key_used} this session")
+SECRET_KEY = key_used
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
