@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: gunicorn modelsmith.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app:cached
+      - ./models:/app/models:ro 
+      - ./media:/app/media
+    environment:
+      - DEBUG=1
+    depends_on: []

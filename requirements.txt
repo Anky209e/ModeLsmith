@@ -12,3 +12,4 @@ torchvision
 tqdm
 tensorflow
 nltk
+gunicorn

@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: gunicorn modelsmith.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models:ro
+      - ./media:/app/media
+      - static_volume:/app/static
+    environment:
+      - DEBUG=0
+      - ALLOWED_HOSTS=example.com
+      # Optionally set SECRET_KEY here or via Docker secrets
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - web
+# caddyfile me domain dal liyo
+
+volumes:
+  caddy_data:
+  caddy_config:
+  static_volume:

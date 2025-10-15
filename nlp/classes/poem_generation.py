@@ -3,7 +3,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.models import load_model
+from tensorflow.keras.saving import load_model
 import numpy as np 
 tokenizer = Tokenizer()
 data = open("./data/nlp/poem_generation.txt").read()
