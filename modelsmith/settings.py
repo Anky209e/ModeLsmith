@@ -20,16 +20,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-from .key_generator import get_key
-# SECURITY WARNING: keep the secret key used in production secret!
-key_used = get_key()
-print(f"Using Key {key_used} this session")
-SECRET_KEY = key_used
+DEBUG = os.environ.get('DEBUG', '1').lower() in {'1', 'true', 'yes'}
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+if not SECRET_KEY:
+    if not DEBUG:
+        raise RuntimeError('SECRET_KEY must be set when DEBUG is disabled')
+    SECRET_KEY = 'django-insecure-modelsmith-local-development-only'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get(
+    'ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1]'
+).split(',') if host.strip()]
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in os.environ.get(
+    'CSRF_TRUSTED_ORIGINS', ''
+).split(',') if origin.strip()]
+if not DEBUG:
+    # The production web service is reachable only through Caddy.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -62,7 +70,7 @@ ROOT_URLCONF = 'modelsmith.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +92,7 @@ WSGI_APPLICATION = 'modelsmith.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.environ.get('DATABASE_PATH', BASE_DIR / 'db.sqlite3'),
     }
 }
 

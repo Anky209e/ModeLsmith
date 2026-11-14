@@ -1,14 +1,15 @@
-version: '3.8'
+name: modelsmith-dev
 services:
   web:
     build: .
-    command: gunicorn modelsmith.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    entrypoint: ["/usr/local/bin/entrypoint-dev.sh"]
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     volumes:
-      - .:/app:cached
-      - ./models:/app/models:ro 
-      - ./media:/app/media
+      - .:/app
+      - ./models:/app/models:ro
     environment:
-      - DEBUG=1
-    depends_on: []
+      DEBUG: "1"
+      ALLOWED_HOSTS: "localhost,127.0.0.1,[::1]"

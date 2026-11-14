@@ -9,10 +9,14 @@ dist/
 .venv
 .git
 .github
-media/*
 models/*
 db.sqlite3
 *.sqlite3
 *.log
 tests/
 node_modules/
+
+.env
+.env.*
+!.env.example
+static/

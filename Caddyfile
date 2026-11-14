@@ -1,9 +1,17 @@
-example.com {
-  reverse_proxy web:8000
-  encode gzip
-}
+{$DOMAIN} {
+    encode gzip
 
+    handle_path /static/* {
+        root * /srv/static
+        file_server
+    }
 
-www.example.com {
-  redir https://example.com{uri}
+    handle_path /media/* {
+        root * /srv/media
+        file_server
+    }
+
+    handle {
+        reverse_proxy web:8000
+    }
 }

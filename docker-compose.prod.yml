@@ -1,23 +1,33 @@
-version: '3.8'
+name: modelsmith-prod
 services:
   web:
     build: .
-    command: gunicorn modelsmith.wsgi:application --bind 0.0.0.0:8000 --workers 3
     restart: unless-stopped
     volumes:
       - ./models:/app/models:ro
-      - ./media:/app/media
+      - media_volume:/app/media
       - static_volume:/app/static
+      - database_volume:/app/runtime
     environment:
-      - DEBUG=0
-      - ALLOWED_HOSTS=example.com
-      # Optionally set SECRET_KEY here or via Docker secrets
+      DEBUG: "0"
+      SECRET_KEY: "${SECRET_KEY:?Set SECRET_KEY in .env}"
+      ALLOWED_HOSTS: "${DOMAIN:?Set DOMAIN in .env},localhost,127.0.0.1"
+      CSRF_TRUSTED_ORIGINS: "https://${DOMAIN}"
+      DATABASE_PATH: /app/runtime/db.sqlite3
     expose:
       - "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/', timeout=5).close()"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
 
   caddy:
     image: caddy:2
     restart: unless-stopped
+    environment:
+      DOMAIN: "${DOMAIN}"
     ports:
       - "80:80"
       - "443:443"
@@ -25,11 +35,15 @@ services:
       - caddy_data:/data
       - caddy_config:/config
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - media_volume:/srv/media:ro
+      - static_volume:/srv/static:ro
     depends_on:
-      - web
-# caddyfile me domain dal liyo
+      web:
+        condition: service_healthy
 
 volumes:
   caddy_data:
   caddy_config:
+  media_volume:
   static_volume:
+  database_volume:
